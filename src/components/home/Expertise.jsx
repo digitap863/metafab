@@ -1,0 +1,130 @@
+import React from 'react';
+import Image from 'next/image';
+
+const Expertise = () => {
+  return (
+    <section className="w-full bg-[#f9fafb] py-16 md:py-24 px-6 md:px-12 lg:px-20 mx-auto">
+      <div className="max-w-[1400px] mx-auto flex flex-row w-full gap-6 lg:gap-8 min-h-[500px]">
+        
+        {/* Left Card */}
+        <div className="bg-[#0B110B] rounded-[24px] p-10 md:p-13 flex flex-col items-center justify-center text-center shadow-lg h-full border border-white/5 md:w-[40%] w-full">
+          <h2 className="text-[#D1D5DB] text-2xl md:text-3xl lg:text-4xl font-semibold uppercase tracking-widest  mb-8">
+            Customization<br />Expertise
+          </h2>
+          
+          <div className="flex items-center justify-center mb-8">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="#9CA3AF"/>
+            </svg>
+          </div>
+
+          <h2 className="text-[#C2943A] text-2xl md:text-3xl lg:text-4xl font-semibold uppercase tracking-widest  mb-8 drop-shadow-md">
+            Tailored To Your Needs
+          </h2>
+
+          <div className="flex items-center justify-center mb-8">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="#9CA3AF"/>
+            </svg>
+          </div>
+
+          <h2 className="text-[#D1D5DB] text-2xl md:text-3xl lg:text-4xl font-semibold uppercase tracking-widest ">
+            Industry<br />Assurance
+          </h2>
+        </div>
+
+        {/* Right Card */}
+        <div className="relative rounded-[24px] overflow-hidden shadow-lg h-full flex flex-col justify-center border border-white/5 bg-[#1A1A1A] md:w-[60%] w-full">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 z-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/bg.svg')" }}
+          >
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/70"></div>
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 p-10 md:p-16 flex flex-col gap-10 md:gap-12">
+            
+            {/* Item 1 */}
+            <div className="flex items-center gap-6 group cursor-default">
+              <Image
+                src="/ico1.svg"
+                alt="Certification"
+                width={40}
+                height={40}
+                className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+              />
+
+ 
+              <span className="text-white text-lg md:text-xl font-medium tracking-wide uppercase">
+                Advanced Manufacturing Technology
+              </span>
+            </div>
+
+            {/* Item 2 */}
+            <div className="flex items-center gap-6 group cursor-default">
+              <Image
+                src="/ico2.svg"
+                alt="Certification"
+                width={40}
+                height={40}
+                className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+              />
+              <span className="text-white text-lg md:text-xl font-medium tracking-wide">
+                Competitive Pricing
+              </span>
+            </div>
+
+            {/* Item 3 */}
+            <div className="flex items-center gap-6 group cursor-default">
+              <Image
+                src="/ico3.svg"
+                alt="Certification"
+                width={40}
+                height={40}
+                className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+              />
+              <span className="text-white text-lg md:text-xl font-medium tracking-wide">
+                South India Dealer Network
+              </span>
+            </div>
+
+            {/* Item 4 */}
+            <div className="flex items-center gap-6 group cursor-default">
+              <Image
+                src="/ico4.svg"
+                alt="Certification"
+                width={40}
+                height={40}
+                className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+              />
+              <span className="text-white text-lg md:text-xl font-medium tracking-wide">
+                Extra Warranty
+              </span>
+            </div>
+
+            {/* Item 5 */}
+            <div className="flex items-center gap-6 group cursor-default">
+              <Image
+                src="/ico5.svg"
+                alt="Certification"
+                width={40}
+                height={40}
+                className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+              />
+              <span className="text-white text-lg md:text-xl font-medium tracking-wide">
+                Timely Delivery
+              </span>
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+    </section>
+  );
+};
+
+export default Expertise;
