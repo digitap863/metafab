@@ -136,7 +136,7 @@ const Banner = () => {
                     <div className="hidden lg:block absolute bottom-0 right-6 sm:right-10 lg:right-16 xl:right-20 
                         translate-y-[40%] z-20">
                         <div className="relative w-[500px] xl:w-[600px] rounded-2xl border border-[#5C6B4F]/50 
-                            bg-[#3D4A33]/20 backdrop-blur-sm p-3 shadow-2xl overflow-hidden">
+                            bg-[#FFFFFF]/100 backdrop-blur-sm p-3 shadow-2xl overflow-hidden">
                             <Swiper
                                 modules={[Autoplay, FreeMode]}
                                 slidesPerView={2}
@@ -153,7 +153,7 @@ const Banner = () => {
                             >
                                 {scrollImages.map((src, index) => (
                                     <SwiperSlide key={index}>
-                                        <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
+                                        <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden ">
                                             <Image
                                                 src={src}
                                                 alt={`Project showcase ${index + 1}`}

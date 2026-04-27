@@ -154,10 +154,10 @@ const Footer = () => {
                 </h3>
 
                 {/* Newsletter form */}
-                <form onSubmit={handleSubmit} className="flex items-center gap-3 max-w-xl relative">
+                <form onSubmit={handleSubmit} className="flex flex-col lg:block gap-3 max-w-xl relative">
   
                 {/* Input */}
-                <div className="flex-1 relative ">
+                <div className="w-full relative ">
                     <input
                     type="email"
                     value={email}
@@ -175,11 +175,11 @@ const Footer = () => {
                 {/* Button */}
                 <button
                     type="submit"
-                    className="bg-transparent text-white absolute top-0 right-0 
+                    className="bg-transparent text-white relative lg:absolute top-0 right-0 
                     px-7 py-3.5 rounded-full 
                     border border-white/40 
                     hover:bg-white/10 hover:border-white/70
-                    transition-all duration-300 whitespace-nowrap"
+                    transition-all duration-300 whitespace-nowrap mt-3 lg:mt-0 w-full lg:w-auto"
                 >
                     Submit Now
                 </button>
@@ -187,11 +187,11 @@ const Footer = () => {
                 </form>
 
                 {/* Quick Links */}
-                <div className="space-y-5  pt-10 bg-[#2E3E24]/30 px-5  py-16 rounded-lg">
-                  <h4 className="text-[#C89522] text-lg md:text-xl font-semibold  tracking-wide uppercase">
+                <div className="space-y-4 lg:space-y-5 py-8 lg:py-16 bg-[#2E3E24]/30 px-5 rounded-lg">
+                  <h4 className="text-[#C89522] text-lg md:text-xl font-semibold tracking-wide uppercase">
                     Quick Links
                   </h4>
-                  <nav className="flex flex-wrap justify-between gap-y-3 pt-1">
+                  <nav className="grid grid-cols-2 lg:flex lg:flex-wrap lg:justify-between gap-4 pt-1">
                     {quickLinks.map((link) => (
                       <Link
                         key={link.name}
