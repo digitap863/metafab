@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 
 const Layout = ({ children }) => {
     return (
-        <div className="w-full min-h-screen overflow-hidden bg-[#FFFFFF] ">
+        <div className="w-full min-h-screen overflow-x-hidden bg-[#FFFFFF] ">
             <AOSInit />
             <Navbar />
             <main className="">{children}</main>

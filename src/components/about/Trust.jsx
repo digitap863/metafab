@@ -46,7 +46,7 @@ const Trust = () => {
       <div className="relative z-10 max-w-[1400px] w-full mx-auto flex flex-col justify-between h-full gap-12 lg:gap-24">
 
         {/* Top Section */}
-        <div className="flex flex-col items-start gap-4 md:gap-6">
+        <div className="flex flex-col items-start gap-4 md:gap-6" data-aos="fade-up">
           <div className="flex items-center gap-3">
             <DiamondIcon />
             <span className="text-white text-xs md:text-sm font-semibold tracking-wider">
@@ -65,7 +65,7 @@ const Trust = () => {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12 lg:gap-10 pl-0 lg:pl-[10%]">
 
           {/* Left List */}
-          <div className="flex flex-col gap-5 md:gap-6 lg:gap-8 w-full lg:w-3/5">
+          <div className="flex flex-col gap-5 md:gap-6 lg:gap-8 w-full lg:w-3/5" data-aos="fade-right" data-aos-delay="200">
             {listItems.map((item, index) => (
               <div key={index} className="flex items-center gap-4 md:gap-6 group cursor-default">
                 <div className="relative w-8 h-8 md:w-10 md:h-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
@@ -84,7 +84,7 @@ const Trust = () => {
           </div>
 
           {/* Right Card */}
-          <div className="bg-white rounded-[24px] p-6 sm:p-8 lg:p-12 shadow-2xl flex items-center justify-center relative w-[240px] sm:w-[320px] lg:w-[380px] aspect-square mx-auto lg:mx-0 mt-8 lg:-mt-20">
+          <div className="bg-white rounded-[24px] p-6 sm:p-8 lg:p-12 shadow-2xl flex items-center justify-center relative w-[240px] sm:w-[320px] lg:w-[380px] aspect-square mx-auto lg:mx-0 mt-8 lg:-mt-20" data-aos="zoom-in" data-aos-delay="400">
             <div className="relative w-[85%] h-[85%] flex items-center justify-center">
               <Image
                 src="/about/circlee.svg"

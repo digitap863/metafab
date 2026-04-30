@@ -1,9 +1,8 @@
 "use client"
 
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const ProductCard = ({ product }) => (
   <div className="bg-[#6B854A] rounded-[16px] p-6 flex flex-col relative group transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl h-full">
@@ -80,22 +79,24 @@ const Collection = () => {
       <div className="max-w-[1400px] mx-auto">
         
         {/* Header */}
-        <div className="flex flex-col items-center justify-center mb-12 md:mb-16">
-          <div className="flex items-center gap-2 mb-3">
+        <div className="flex flex-col items-center justify-center mb-12 md:mb-16" data-aos="fade-up" data-aos-delay="0">
+          <div className="flex items-center gap-2 mb-3" data-aos="fade-up" data-aos-delay="100">
             <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 0L7.5 4.5L12 6L7.5 7.5L6 12L4.5 7.5L0 6L4.5 4.5L6 0Z" stroke="black" strokeWidth="1" fill="transparent"/>
             </svg>
             <span className="text-black text-xs md:text-sm font-semibold tracking-widest uppercase">Featured Products</span>
           </div>
-          <h2 className="text-[#071F07] text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-center">
+          <h2 className="text-[#071F07] text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-center" data-aos="fade-up" data-aos-delay="200">
             Explore Our <span className='text-[#071F07]/90'> Collection</span> 
           </h2>
         </div>
 
         {/* Product Grid (Desktop/Tablet) */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {products.map((product, index) => (
+            <div key={product.id} data-aos="fade-up" data-aos-delay={index * 150}>
+              <ProductCard product={product} />
+            </div>
           ))}
         </div>
 
@@ -119,7 +120,7 @@ const Collection = () => {
         </div>
 
         {/* View More Button */}
-        <div className="flex justify-center mt-12 md:mt-16">
+        <div className="flex justify-center mt-12 md:mt-16" data-aos="zoom-in" data-aos-delay="400">
           <button className="bg-[#FFD900] hover:bg-[#F0C800] border  text-black font-bold text-sm md:text-base px-8 py-3.5 rounded-full transition-colors shadow-sm">
             View More
           </button>

@@ -91,10 +91,19 @@ const Footer = () => {
       <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-10 md:pt-14 pb-0">
         <div className="max-w-7xl mx-auto">
           {/* Main footer content inside bordered box */}
-          <div className="border border-white/60 rounded-2xl p-6 md:p-10 lg:p-12">
+          <div 
+            className="border border-white/60 rounded-2xl p-6 md:p-10 lg:p-12"
+            data-aos="fade-up" 
+            data-aos-duration="1000"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
               {/* Left Column - Logo, Address, Contact */}
-              <div className="space-y-4">
+              <div 
+                className="space-y-4"
+                data-aos="fade-right" 
+                data-aos-delay="200" 
+                data-aos-duration="1000"
+              >
                 {/* Footer Logo */}
                 <div>
                   <Image
@@ -145,7 +154,12 @@ const Footer = () => {
               </div>
 
               {/* Right Column - Tagline, Newsletter, Quick Links */}
-              <div className="space-y-8">
+              <div 
+                className="space-y-8"
+                data-aos="fade-left" 
+                data-aos-delay="400" 
+                data-aos-duration="1000"
+              >
                 {/* Tagline */}
                 <h3 className="text-[#FFFFFF]/70 text-xl md:text-xl font-semibold tracking-wide leading-snug">
                   DESIGNS THAT DEFINE
@@ -208,7 +222,13 @@ const Footer = () => {
           </div>
 
           {/* Bottom bar - outside the bordered box */}
-          <div className="flex flex-col sm:flex-row items-center justify-between pt-2 pb-5 px-2 gap-3 border-t border-[#353535] mt-10">
+          <div 
+            className="flex flex-col sm:flex-row items-center justify-between pt-2 pb-5 px-2 gap-3 border-t border-[#353535] mt-10"
+            data-aos="fade-up" 
+            data-aos-delay="600" 
+            data-aos-duration="1000" 
+            data-aos-offset="0"
+          >
             <p className="text-[#D7D7D7] text-xs">
               Copyright © Tapclone &nbsp;|&nbsp; All rights reserved.
             </p>

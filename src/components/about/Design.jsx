@@ -29,7 +29,7 @@ const DesignStats = () => {
       <div className="max-w-[1400px] w-full mx-auto flex flex-col">
         
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-center text-center mb-8 lg:mb-20">
+        <div className="flex flex-col items-center justify-center text-center mb-8 lg:mb-20" data-aos="fade-up">
           <div className="flex items-center gap-2 mb-4">
             <DiamondIcon />
             <span className="text-[#0B120D] text-sm font-semibold tracking-wider">
@@ -48,7 +48,7 @@ const DesignStats = () => {
           {/* Left Column (Images) - Spans 2 cols */}
           <div className="lg:col-span-2 flex flex-col gap-6">
             {/* Top Image */}
-            <div className="relative w-full flex-1 min-h-[350px] rounded-2xl overflow-hidden ">
+            <div className="relative w-full flex-1 min-h-[350px] rounded-2xl overflow-hidden" data-aos="fade-right">
               <Image 
                 src="/about/img1.svg" 
                 alt="Quality Design" 
@@ -65,7 +65,7 @@ const DesignStats = () => {
             </div>
             
             {/* Bottom Image */}
-            <div className="relative w-full flex-1 min-h-[350px] rounded-2xl overflow-hidden ">
+            <div className="relative w-full flex-1 min-h-[350px] rounded-2xl overflow-hidden" data-aos="fade-right" data-aos-delay="200">
               <Image 
                 src="/about/img2.svg" 
                 alt="Spaces" 
@@ -89,7 +89,7 @@ const DesignStats = () => {
 
           {/* Middle Column (25+) - Spans 1 col */}
           <div className="lg:col-span-1 flex flex-col py-0 lg:py-36">
-            <div className="bg-[#071F07] text-white p-6 md:py-10 md:px-6  rounded-2xl flex-1 flex flex-col ">
+            <div className="bg-[#071F07] text-white p-6 md:py-10 md:px-6 rounded-2xl flex-1 flex flex-col" data-aos="fade-up" data-aos-delay="300">
               <h3 className="text-5xl sm:text-6xl font-semibold mb-auto pt-2">25+</h3>
               <div>
                 <h4 className="text-lg lg:text-xl font-semibold mb-3 uppercase tracking-wide">Expert Designers</h4>
@@ -100,7 +100,7 @@ const DesignStats = () => {
 
           {/* Right Column (500+ and 1200+) - Spans 1 col */}
           <div className="lg:col-span-1 flex flex-col gap-6">
-            <div className="bg-[#6E864A] text-white p-6 md:py-10 md:px-6  rounded-2xl flex-1 flex flex-col ">
+            <div className="bg-[#6E864A] text-white p-6 md:py-10 md:px-6 rounded-2xl flex-1 flex flex-col" data-aos="fade-left" data-aos-delay="400">
               <h3 className="text-5xl sm:text-6xl font-semibold mb-auto pt-2">500+</h3>
               <div>
                 <h4 className="text-lg lg:text-xl font-semibold mb-3 uppercase tracking-wide">Spaces Styled</h4>
@@ -108,7 +108,7 @@ const DesignStats = () => {
               </div>
             </div>
 
-            <div className="bg-white text-[#0B120D] p-6 md:py-10 md:px-6  rounded-2xl flex-1 flex flex-col ">
+            <div className="bg-white text-[#0B120D] p-6 md:py-10 md:px-6 rounded-2xl flex-1 flex flex-col" data-aos="fade-left" data-aos-delay="500">
               <h3 className="text-5xl sm:text-6xl font-semibold mb-auto pt-2">1200+</h3>
               <div>
                 <h4 className="text-lg lg:text-xl font-semibold mb-3 uppercase tracking-wide">Design Elements</h4>
@@ -120,7 +120,7 @@ const DesignStats = () => {
         </div>
 
         {/* Mobile Layout */}
-        <div className="flex flex-col md:hidden gap-4 w-full">
+        <div className="flex flex-col md:hidden gap-4 w-full" data-aos="fade-up">
           {/* Top Image (Standalone) */}
           <div className="relative w-full min-h-[300px] rounded-2xl overflow-hidden">
             <Image 

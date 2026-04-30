@@ -41,13 +41,13 @@ const Clients = () => {
       <div className="max-w-[1400px] w-full mx-auto flex flex-col items-center">
         
         {/* Header */}
-        <h2 className="text-4xl md:text-5xl lg:text-[60px] font-bold uppercase tracking-tight mb-10 md:mb-20 text-center">
+        <h2 className="text-4xl md:text-5xl lg:text-[60px] font-bold uppercase tracking-tight mb-10 md:mb-20 text-center" data-aos="fade-up">
           <span className="text-[#071F07]">OUR </span>
           <span className="text-[#6E864A]">CLIENTS</span>
         </h2>
 
         {/* Swiper Carousel */}
-        <div className="w-full">
+        <div className="w-full" data-aos="fade-right" data-aos-delay="200">
           <Swiper
             modules={[Autoplay]}
             spaceBetween={40}
@@ -89,7 +89,7 @@ const Clients = () => {
         </div>
 
 
-          <div className="w-full">
+          <div className="w-full" data-aos="fade-left" data-aos-delay="400">
           <Swiper
             modules={[Autoplay]}
             spaceBetween={40}

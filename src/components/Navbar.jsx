@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -12,11 +13,21 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [activeLink, setActiveLink] = useState("Home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  useEffect(() => {
+    const currentLink = navLinks.find(link => link.href === pathname);
+    if (currentLink) {
+      setActiveLink(currentLink.name);
+    } else if (pathname === "/contact") {
+      setActiveLink("Contact us");
+    }
+  }, [pathname]);
+
   return (
-    <nav className="absolute top-0 left-0 w-full z-50">
+    <nav className="absolute top-0 left-0 w-full z-50" data-aos="fade-down" data-aos-duration="1000">
       {/* Main navbar container with semi-transparent dark green bg + blur */}
       <div className="bg-[#071F0780] backdrop-blur-md border-b border-[#C8952230]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,9 +72,12 @@ const Navbar = () => {
             <div className="hidden md:flex items-center">
               <Link
                 href="/contact"
-                className="px-5 py-2 text-sm font-medium text-[#C89522] border border-[#C89522] rounded-md 
-                  hover:bg-[#C8952215] hover:shadow-[0_0_15px_rgba(200,149,34,0.15)] 
-                  transition-all duration-300 tracking-wide"
+                onClick={() => setActiveLink("Contact us")}
+                className={`px-5 py-2 text-sm font-medium rounded-md transition-all duration-300 tracking-wide border border-[#C89522]
+                  ${activeLink === "Contact us" 
+                    ? "bg-[#C89522] text-[#071F07] shadow-[0_0_15px_rgba(200,149,34,0.3)]" 
+                    : "text-[#C89522] hover:bg-[#C8952215] hover:shadow-[0_0_15px_rgba(200,149,34,0.15)]"
+                  }`}
               >
                 Contact us
               </Link>
@@ -120,13 +134,18 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <div className="pt-3 px-4">
+          <div className="pt-3 px-4 pb-4">
             <Link
               href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-center px-5 py-2.5 text-sm font-medium text-[#C89522] 
-                border border-[#C89522] rounded-md hover:bg-[#C8952215] 
-                transition-all duration-300 tracking-wide"
+              onClick={() => {
+                setActiveLink("Contact us");
+                setMobileMenuOpen(false);
+              }}
+              className={`block w-full text-center px-5 py-2.5 text-sm font-medium rounded-md transition-all duration-300 tracking-wide border border-[#C89522]
+                ${activeLink === "Contact us"
+                  ? "bg-[#C89522] text-[#071F07]"
+                  : "text-[#C89522] hover:bg-[#C8952215]"
+                }`}
             >
               Contact us
             </Link>

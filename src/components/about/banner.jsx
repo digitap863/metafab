@@ -1,4 +1,8 @@
+"use client";
+
+import { useRef, useEffect } from "react";
 import Image from "next/image";
+import gsap from "gsap";
 
 const servicesList = [
   "INTERIOR PROJECTS",
@@ -20,6 +24,28 @@ const DecorativeLine = () => (
 );
 
 const AboutBanner = () => {
+  const usRef = useRef(null);
+  const aboutRef = useRef(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline({ delay: 0.3 });
+
+    // "ABOUT" fades in and slides up
+    tl.from(aboutRef.current, {
+      y: 80,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+
+    // "US" slides up from below into position
+    tl.from(usRef.current, {
+      y: "100%",
+      duration: 0.9,
+      ease: "power3.out",
+    }, "-=0.3");
+  }, []);
+
   return (
 
     <section>
@@ -48,12 +74,12 @@ const AboutBanner = () => {
           <div className=" w-full mx-auto flex flex-col items-start text-left w-[71%]">
             {/* Main Heading */}
             <h1
-              className="text-[12vw] sm:text-[12vw] md:text-[100px] lg:text-[130px]  font-bold leading-none tracking-tighter mb-4 md:mb-12"
-              data-aos="fade-up"
-              data-aos-duration="1000"
+              className="text-[12vw] sm:text-[12vw] md:text-[100px] lg:text-[130px] font-bold leading-none tracking-tighter mb-4 md:mb-12"
             >
-              <span className="text-[#071F07]">ABOUT</span>
-              <span className="text-white">US</span>
+              <span ref={aboutRef} className="text-[#071F07] inline-block">ABOUT</span>
+              <span className="inline-block overflow-hidden align-bottom">
+                <span ref={usRef} className="text-white inline-block">US </span>
+              </span>
             </h1>
 
             {/* Subheading */}

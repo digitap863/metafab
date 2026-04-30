@@ -6,7 +6,7 @@ const WhyChooseUs = () => {
     <section className="w-full bg-[#FFFFFF] py-16 md:py-24 px-4 md:px-12 lg:px-20 mx-auto">
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
-        <div className="flex flex-col items-center justify-center mb-10 md:mb-14">
+        <div className="flex flex-col items-center justify-center mb-10 md:mb-14" data-aos="fade-up" data-aos-duration="1000">
           <div className="flex items-center gap-2 mb-3">
             <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 0L7.5 4.5L12 6L7.5 7.5L6 12L4.5 7.5L0 6L4.5 4.5L6 0Z" stroke="black" strokeWidth="1" fill="transparent" />
@@ -22,7 +22,7 @@ const WhyChooseUs = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 md:h-[650px] lg:h-[750px]">
 
           {/* Column 1 */}
-          <div className="flex flex-col gap-4 md:gap-6 h-full">
+          <div className="flex flex-col gap-4 md:gap-6 h-full" data-aos="fade-up" data-aos-delay="200">
             {/* Unique Designs */}
             <div className="bg-white rounded-xl border border-gray-100 p-6 flex flex-col items-center justify-center aspect-[4/3] md:aspect-auto w-full md:h-[40%] relative  transition-shadow">
               <img src="/choosesec/loader.svg" alt="Loader" className="w-32 h-32 md:w-40 md:h-40 object-contain animate-[spin_10s_linear_infinite]" />
@@ -44,7 +44,7 @@ const WhyChooseUs = () => {
           </div>
 
           {/* Column 2 */}
-          <div className="flex flex-col gap-4 md:gap-6 h-full">
+          <div className="flex flex-col gap-4 md:gap-6 h-full" data-aos="fade-up" data-aos-delay="400">
             {/* Proven Work */}
             <div className="bg-[#6B854A] rounded-xl p-6 lg:p-8 relative overflow-hidden  flex flex-col justify-between aspect-square md:aspect-auto w-full md:h-[45%]">
               <div className="z-10 w-[65%]">
@@ -80,7 +80,7 @@ const WhyChooseUs = () => {
           </div>
 
           {/* Column 3 */}
-          <div className="flex flex-col gap-4 md:gap-6 h-full">
+          <div className="flex flex-col gap-4 md:gap-6 h-full" data-aos="fade-up" data-aos-delay="600">
             {/* Client-focused Approach */}
             <div className="bg-[#1C201C] rounded-xl overflow-hidden relative  aspect-[3/4] md:aspect-auto w-full md:h-[70%] group">
               <img src="/choosesec/clientfocusbg.svg" alt="Background" className="absolute inset-0 w-full h-full object-cover opacity-[0.50] blur-[3px]" />

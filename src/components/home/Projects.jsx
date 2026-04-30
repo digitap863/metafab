@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const DiamondIcon = () => (
   <svg
@@ -106,18 +106,18 @@ const Projects = () => {
           {/* ==== LEFT COLUMN ==== */}
           <div className="flex flex-col gap-6 sm:gap-10">
             {/* Header Title (Left side) */}
-            <div className="flex flex-col gap-3 mb-2 lg:mb-6">
-              <div className="flex items-center gap-2">
+            <div className="flex flex-col gap-3 mb-2 lg:mb-6" data-aos="fade-up" data-aos-duration="800">
+              <div className="flex items-center gap-2" data-aos="fade-up" data-aos-delay="100">
                 <DiamondIcon />
                 <span className="text-[#1A1A1A] text-[11px] font-bold tracking-widest uppercase">
                   Our Projects
                 </span>
               </div>
-              <h2 className="text-[#1A1A1A] text-3xl md:text-6xl font-bold uppercase  tracking-tight whitespace-nowrap">
+              <h2 className="text-[#1A1A1A] text-3xl md:text-6xl font-bold uppercase  tracking-tight whitespace-nowrap" data-aos="fade-up" data-aos-delay="200">
                 Our Featured <span className="text-[#2D3A1F]">Work</span>
               </h2>
 
-              <div className="flex flex-col items-end justify-end gap-6 lg:pt-[4.5rem] xl:pt-[5rem] mb-2 lg:mb-6 md:hidden block">
+              <div className="flex flex-col items-end justify-end gap-6 lg:pt-[4.5rem] xl:pt-[5rem] mb-2 lg:mb-6 md:hidden block" data-aos="fade-up" data-aos-delay="300">
               <div>
                 <p className="text-[#6B6B6B] text-[13px] sm:text-sm leading-relaxed max-w-[420px] pb-7">
                   Discover our collection of thoughtfully designed interiors — each project reflecting modern aesthetics, functionality, and comfort for everyday living.
@@ -136,8 +136,10 @@ const Projects = () => {
 
             {/* Left Column Projects */}
             <div className="hidden lg:flex flex-col gap-6">
-            {leftProjects.map((project) => (
-              <ProjectCard key={project.id} {...project} />
+            {leftProjects.map((project, index) => (
+              <div key={project.id} data-aos="fade-up" data-aos-delay={400 + index * 150}>
+                <ProjectCard {...project} />
+              </div>
             ))}
             </div>
 
@@ -147,7 +149,7 @@ const Projects = () => {
           {/* ==== RIGHT COLUMN ==== */}
           <div className="flex flex-col gap-6 sm:gap-10  ">
             {/* Right side Text & Button */}
-            <div className="md:flex flex-col items-end justify-end gap-6 lg:pt-[4.5rem] xl:pt-[5rem] mb-2 lg:mb-6  hidden">
+            <div className="md:flex flex-col items-end justify-end gap-6 lg:pt-[4.5rem] xl:pt-[5rem] mb-2 lg:mb-6  hidden" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
               <div>
                 <p className="text-[#6B6B6B] text-[13px] sm:text-sm leading-relaxed max-w-[420px] pb-7">
                   Discover our collection of thoughtfully designed interiors — each project reflecting modern aesthetics, functionality, and comfort for everyday living.
@@ -163,12 +165,14 @@ const Projects = () => {
 
             {/* Right Column Projects */}
             <div className="hidden lg:flex flex-col gap-6">
-            {rightProjects.map((project) => (
-              <ProjectCard key={project.id} {...project} />
+            {rightProjects.map((project, index) => (
+              <div key={project.id} data-aos="fade-up" data-aos-delay={400 + index * 150}>
+                <ProjectCard {...project} />
+              </div>
             ))}
             </div>
 
-            <div className="lg:hidden block">
+            <div className="lg:hidden block" data-aos="fade-up" data-aos-delay="400">
               <Swiper
                 modules={[Autoplay]}
                 spaceBetween={8}

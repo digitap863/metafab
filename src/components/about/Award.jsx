@@ -52,7 +52,7 @@ const AwardShowcase = () => {
       <div className="max-w-[1400px] w-full mx-auto flex flex-col">
 
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-center text-center mb-16 md:mb-20">
+        <div className="flex flex-col items-center justify-center text-center mb-16 md:mb-20" data-aos="fade-up">
           <div className="flex items-center gap-2 mb-4">
             <DiamondIcon />
             <span className="text-[#071F07] text-sm font-semibold tracking-wider">
@@ -69,7 +69,7 @@ const AwardShowcase = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
 
           {/* Left Column (Image) */}
-          <div className="lg:col-span-1 relative w-full rounded-2xl overflow-hidden shadow-sm min-h-[600px] lg:min-h-full">
+          <div className="lg:col-span-1 relative w-full rounded-2xl overflow-hidden shadow-sm min-h-[600px] lg:min-h-full" data-aos="fade-right">
             <Image
               src="/about/flower.svg"
               alt="Flower in a vase"
@@ -83,6 +83,8 @@ const AwardShowcase = () => {
             {awardsData.map((award, index) => (
               <div
                 key={index}
+                data-aos="fade-left"
+                data-aos-delay={index * 100}
                 className="p-4 lg:py-8 lg:px-10 flex flex-col gap-2 bg-transparent border-b border-[#071F07]/10 lg:border-none last:border-none hover:bg-[#A7B582]/30 lg:hover:bg-[#A7B582] active:bg-[#A7B582] transition-colors duration-300 cursor-default rounded-lg lg:rounded-none"
               >
                 <h3 className="text-2xl lg:text-[32px] font-semibold text-[#071F07] tracking-tight">

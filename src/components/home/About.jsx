@@ -134,7 +134,7 @@ const About = () => {
             {/* Top Left: Text + Buttons */}
             <div className="flex flex-col gap-6 sm:gap-8 md:pb-10">
               {/* About Us label */}
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5" data-aos="fade-up" data-aos-duration="800">
                 <DiamondIcon />
                 <span className="text-[#3D4A2F] text-sm font-medium tracking-wide">
                   About Us
@@ -142,13 +142,13 @@ const About = () => {
               </div>
 
               {/* Main Heading */}
-              <h2 className="text-[#1A1A1A] text-2xl sm:text-3xl md:text-[2rem] lg:text-[2.2rem] xl:text-[2.5rem] font-bold uppercase leading-[1.2] ">
+              <h2 className="text-[#1A1A1A] text-2xl sm:text-3xl md:text-[2rem] lg:text-[2.2rem] xl:text-[2.5rem] font-bold uppercase leading-[1.2]" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 High-Performance Office Furniture Crafted For Comfort, Style,
                 And Durability.
               </h2>
 
               {/* Buttons */}
-              <div className="flex items-center gap-5 flex-wrap ">
+              <div className="flex items-center gap-5 flex-wrap" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                 <Link
                   href="/contact"
                   className="group inline-flex items-center gap-2.5 bg-[#FFD900] hover:bg-[#1A1A1A] text-black  border border-black
@@ -169,7 +169,7 @@ const About = () => {
             </div>
 
             {/* Bottom Left: Office Image */}
-            <div className="relative w-full aspect-[16/10] sm:aspect-[16/11] rounded-2xl overflow-hidden pt">
+            <div className="relative w-full aspect-[16/10] sm:aspect-[16/11] rounded-2xl overflow-hidden pt" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
               <Image
                 src="/abouimg.png"
                 alt="Modern decorated office room with elegant interior design"
@@ -189,6 +189,8 @@ const About = () => {
               sublabel="Over a decade of transforming spaces"
               variant="olive"
               className="border-b border-r border-[#BFBFBF]"
+              data-aos="fade-up"
+              data-aos-delay="100"
             />
             <StatCard
               value={300}
@@ -197,6 +199,8 @@ const About = () => {
               sublabel="Office to offices, we deliver excellence"
               variant="light"
               className="border-b border-[#BFBFBF]"
+              data-aos="fade-up"
+              data-aos-delay="200"
             />
 
             {/* Bottom Row */}
@@ -207,6 +211,8 @@ const About = () => {
               sublabel="Built on Excellence"
               variant="light"
               className="border-r border-[#BFBFBF]"
+              data-aos="fade-up"
+              data-aos-delay="300"
             />
             <StatCard
               value={25}
@@ -214,6 +220,8 @@ const About = () => {
               label="Corporate Clients"
               sublabel="People who love our designs"
               variant="dark"
+              data-aos="fade-up"
+              data-aos-delay="400"
             />
           </div>
         </div>

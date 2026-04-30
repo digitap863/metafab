@@ -33,7 +33,7 @@ const Story = () => {
       <div className="max-w-[1400px] w-full mx-auto flex flex-col">
         
         {/* Header Section */}
-        <div className="flex flex-col items-start mb-6 lg:mb-16">
+        <div className="flex flex-col items-start mb-6 lg:mb-16" data-aos="fade-right">
           <div className="flex items-center gap-2 mb-4">
             <DiamondIcon />
             <span className="text-[#071F07] text-sm font-semibold tracking-wider">
@@ -50,7 +50,7 @@ const Story = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-6 gap-4 mb-6">
           
           {/* Left Image */}
-          <div className="relative w-full aspect-[4/3] lg:aspect-[2.5/2] rounded-2xl overflow-hidden shadow-sm md:block hidden">
+          <div className="relative w-full aspect-[4/3] lg:aspect-[2.5/2] rounded-2xl overflow-hidden shadow-sm md:block hidden" data-aos="fade-right" data-aos-delay="200">
             <Image 
               src="/about/img3.svg" 
               alt="Office space with two chairs" 
@@ -60,7 +60,7 @@ const Story = () => {
           </div>
 
           {/* Right Image */}
-          <div className="relative w-full aspect-[4/3] lg:aspect-[2.5/2] rounded-2xl overflow-hidden shadow-sm">
+          <div className="relative w-full aspect-[4/3] lg:aspect-[2.5/2] rounded-2xl overflow-hidden shadow-sm" data-aos="fade-left" data-aos-delay="400">
             <Image 
               src="/about/img4.svg" 
               alt="Office space with indoor tree" 
@@ -83,6 +83,8 @@ const Story = () => {
           {timelineData.map((item, index) => (
             <div 
               key={index}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
               className="bg-[#A7B582] md:bg-[#6E864A] rounded-xl md:rounded-2xl px-6 py-5 md:p-8 flex flex-row md:flex-col items-center md:items-start justify-start md:justify-between gap-6 md:gap-0 min-h-0 md:min-h-[120px] lg:min-h-[220px] shadow-sm hover:shadow-md transition-shadow"
             >
               <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold md:font-semibold text-[#0B120D] md:text-[#071F07]">

@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Design = () => {
   return (
@@ -14,7 +13,7 @@ const Design = () => {
       <div className="relative z-10 w-full h-full flex flex-col justify-between px-6 py-10 md:py-16 md:px-12 lg:px-20 max-w-[1920px] mx-auto">
         
         {/* Top Section */}
-        <div className="flex items-start">
+        <div className="flex items-start" data-aos="fade-right" data-aos-duration="800">
           <div className="hidden md:flex flex-col items-center mr-4 mt-1">
             {/* Diamond shape */}
             <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +32,7 @@ const Design = () => {
         </div>
 
         {/* Middle Section - Main Title */}
-        <div className="flex-1 flex flex-col justify-center -mt-5 md:-mt-10 pl-7">
+        <div className="flex-1 flex flex-col justify-center -mt-5 md:-mt-10 pl-7" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
           <h1 className="text-white font-semibold text-4xl sm:text-7xl  uppercase">
             Let's Design <br />
             Your Dream <br />
@@ -42,7 +41,7 @@ const Design = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex justify-end items-end w-full pb-4 md:pb-8">
+        <div className="flex justify-end items-end w-full pb-4 md:pb-8" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="400">
           <button className="bg-[#FFD400] hover:bg-yellow-400 text-black font-semibold text-sm md:text-base py-3 px-7 md:py-3 md:px-10 rounded-full transition-colors duration-300 cursor-pointer shadow-lg hover:shadow-xl">
             Start Your Project
           </button>

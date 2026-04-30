@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 const DiamondIcon = ({ white }) => (
   <svg
     width="16"
@@ -101,14 +101,14 @@ const Process = () => {
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 w-full relative">
 
           {/* Heading */}
-          <div className="lg:w-[20%] w-full flex flex-col items-center lg:items-start text-center lg:text-left gap-1">
-            <div className="flex items-center justify-center lg:justify-start gap-2.5 pb-2 lg:pb-3">
+          <div className="lg:w-[20%] w-full flex flex-col items-center lg:items-start text-center lg:text-left gap-1" data-aos="fade-up" data-aos-duration="800">
+            <div className="flex items-center justify-center lg:justify-start gap-2.5 pb-2 lg:pb-3" data-aos="fade-up" data-aos-delay="100">
               <DiamondIcon white />
               <span className="text-white text-[13px] font-semibold tracking-widest uppercase">
                 Our Process
               </span>
             </div>
-            <h2 className="text-white text-[28px] lg:text-6xl font-semibold leading-[1.05] tracking-tight whitespace-nowrap">
+            <h2 className="text-white text-[28px] lg:text-6xl font-semibold leading-[1.05] tracking-tight whitespace-nowrap" data-aos="fade-up" data-aos-delay="200">
               OUR <span className="lg:hidden">DESIGN</span>
               <br className="hidden lg:block" />
               <span className="hidden lg:inline">DESIGN</span>
@@ -116,7 +116,7 @@ const Process = () => {
           </div>
 
           {/* ====== MOBILE SWIPER ====== */}
-          <div className="lg:hidden w-full overflow-visible mt-2">
+          <div className="lg:hidden w-full overflow-visible mt-2" data-aos="fade-up" data-aos-delay="300">
             <Swiper
               modules={[Autoplay]}
               spaceBetween={16}
@@ -143,7 +143,7 @@ const Process = () => {
 
 
             {/* Step 02 - Concept Design */}
-            <div className="lg:col-start-1 lg:row-start-2 relative lg:mt-16 flex items-center relative ">
+            <div className="lg:col-start-1 lg:row-start-2 relative lg:mt-16 flex items-center relative " data-aos="fade-right" data-aos-duration="600" data-aos-delay="400">
               <div className="hidden lg:block w-[124px] -left-10 absolute ">
                 <Image
                   src="/arrow.svg"
@@ -159,14 +159,14 @@ const Process = () => {
             </div>
 
             {/* Step 04 - Execution */}
-            <div className="lg:col-start-1 lg:row-start-3 lg:mt-10 lg:py-16 relative lg:-left-20">
+            <div className="lg:col-start-1 lg:row-start-3 lg:mt-10 lg:py-16 relative lg:-left-20" data-aos="fade-right" data-aos-duration="600" data-aos-delay="600">
               <StepCard {...steps[3]} />
             </div>
 
 
             {/* ====== CENTER COLUMN ====== */}
             {/* Step 01 - Discovery */}
-            <div className="lg:col-start-2 lg:row-start-1 relative lg:mt-16">
+            <div className="lg:col-start-2 lg:row-start-1 relative lg:mt-16" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
               <StepCard {...steps[0]} />
 
               {/* Arrow pointing down */}
@@ -182,14 +182,14 @@ const Process = () => {
             </div>
 
             {/* Step 05 - Final Touch */}
-            <div className="lg:col-start-2 lg:row-start-3 lg:mt-32 lg:ml-2 relative lg:left-32">
+            <div className="lg:col-start-2 lg:row-start-3 lg:mt-32 lg:ml-2 relative lg:left-32" data-aos="fade-up" data-aos-duration="600" data-aos-delay="700">
               <StepCard {...steps[4]} />
             </div>
 
 
             {/* ====== RIGHT COLUMN ====== */}
             {/* Step 03 - Planning */}
-            <div className="lg:col-start-3 lg:row-start-2 relative lg:mt-16 flex items-center">
+            <div className="lg:col-start-3 lg:row-start-2 relative lg:mt-16 flex items-center" data-aos="fade-left" data-aos-duration="600" data-aos-delay="500">
               <div className="hidden lg:block w-[124px] absolute -left-10">
                 <Image
                   src="/arrow.svg"

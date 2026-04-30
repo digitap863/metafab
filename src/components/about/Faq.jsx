@@ -81,7 +81,7 @@ const Faq = () => {
       <div className="max-w-[1400px] w-full mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-20">
 
         {/* Left Column */}
-        <div className="lg:col-span-1 flex flex-col md:gap-10 gap-6 ">
+        <div className="lg:col-span-1 flex flex-col md:gap-10 gap-6 " data-aos="fade-right">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <DiamondIcon />
@@ -108,7 +108,7 @@ const Faq = () => {
         </div>
 
         {/* Right Column (Accordion) */}
-        <div className="lg:col-span-2 flex flex-col pt-2">
+        <div className="lg:col-span-2 flex flex-col pt-2" data-aos="fade-left" data-aos-delay="200">
           {faqData.map((faq, index) => (
             <FaqItem
               key={index}

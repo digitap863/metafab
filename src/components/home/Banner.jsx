@@ -85,7 +85,7 @@ const Banner = () => {
 
                     {/* Left: Main Heading */}
                     <div className="flex items-end justify-end flex-1 pt-8 md:pt-16 lg:pt-20 text-right ">
-                        <h1 className="text-white  text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold uppercase leading-[1.3] tracking-wide text-right">
+                        <h1 className="text-white  text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold uppercase leading-[1.3] tracking-wide text-right" data-aos="fade-up" data-aos-duration="1000">
                             Workspaces That{" "}
                             <br className="hidden sm:block" />
                             Define <span className="text-[#F5C518]">{" "}
@@ -96,7 +96,7 @@ const Banner = () => {
                     </div>
 
                     {/* Right: Decorative line + Services */}
-                    <div className="hidden md:flex items-stretch gap-3 pt-8 md:pt-16 lg:pt-20 self-stretch ">
+                    <div className="hidden md:flex items-stretch gap-3 pt-8 md:pt-16 lg:pt-20 self-stretch" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
                         <DecorativeLine />
                         <div className="flex flex-col justify-center ">
                             <div className="space-y-2 lg:space-y-3">
@@ -116,7 +116,7 @@ const Banner = () => {
                 {/* ===== BOTTOM SECTION: Tagline + Contact Button (left) + Scrolling Images (right) ===== */}
                 <div className="flex items-end justify-between gap-8">
                     {/* Bottom left: Decorative line + Tagline + Button */}
-                    <div className="flex items-stretch gap-5 lg:gap-6">
+                    <div className="flex items-stretch gap-5 lg:gap-6" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="600">
                         <div className="hidden sm:block">
                             <DecorativeLine />
                         </div>
@@ -143,7 +143,7 @@ const Banner = () => {
 
                     {/* ===== BOTTOM RIGHT: Swiper Continuous Scroll (overlaps below) ===== */}
                     <div className=" absolute bottom-0 right-0 lg:right-16 xl:right-20 
-                        translate-y-[40%] z-20">
+                        translate-y-[40%] z-20" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
                         <div className="relative w-[400px] xl:w-[600px] md:rounded-2xl border border-[#5C6B4F]/50 
                             bg-[#FFFFFF]/100 backdrop-blur-sm p-3 shadow-2xl overflow-hidden">
                             <Swiper

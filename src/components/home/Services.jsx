@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const DiamondIcon = () => (
   <svg
@@ -146,13 +146,13 @@ const Services = () => {
 
           {/* Left Column (4/12) */}
           <div className="lg:col-span-4 flex flex-col gap-8 lg:border-r border-[#E5E5E5] lg:pr-12">
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5" data-aos="fade-up" data-aos-delay="0">
               <DiamondIcon />
               <span className="text-[#1A1A1A] text-[13px] font-semibold tracking-widest uppercase">
                 Our Services
               </span>
             </div>
-            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 md:block hidden">
+            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 md:block hidden" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
               <Image
                 src="/Service.svg"
                 alt="Service Desk"
@@ -163,7 +163,7 @@ const Services = () => {
           </div>
 
           {/* Right Column (8/12) */}
-          <div className="lg:col-span-8 flex flex-col items-start justify-center gap-6 md:gap-10 lg:pl-12">
+          <div className="lg:col-span-8 flex flex-col items-start justify-center gap-6 md:gap-10 lg:pl-12" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
             <h2 className="text-[#101C12] text-2xl sm:text-4xl md:text-5xl font-bold uppercase leading-[1.1] tracking-tight">
               CURATED OFFICE FURNITURE SOLUTIONS ALIGNED WITH YOUR WORKSPACE NEEDS AND PURPOSE
             </h2>
@@ -179,18 +179,19 @@ const Services = () => {
 
         {/* Bottom Cards Section (Desktop/Tablet) */}
         <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-20">
-          {serlap.map((service) => (
-            <ServiceCard
-              key={service.id}
-              title={service.title}
-              desc={service.desc}
-              image={service.image}
-            />
+          {serlap.map((service, index) => (
+            <div key={service.id} data-aos="fade-up" data-aos-delay={300 + index * 100}>
+              <ServiceCard
+                title={service.title}
+                desc={service.desc}
+                image={service.image}
+              />
+            </div>
           ))}
         </div>
 
         {/* Bottom Cards Section (Mobile Swiper) */}
-        <div className="block md:hidden mt-10 w-full overflow-visible">
+        <div className="block md:hidden mt-10 w-full overflow-visible" data-aos="fade-up" data-aos-delay="400">
           <Swiper
             modules={[Autoplay]}
             spaceBetween={16}
