@@ -30,7 +30,7 @@ const ProjectCard = ({ title, year, image, color, link = "#" }) => {
       className="group flex w-full rounded-xl overflow-hidden h-[440px]  md:h-[660px] "
     >
       {/* Vertical Strip */}
-      <div className={`w-10 sm:w-14 flex flex-col gap-2 justify-between py-4 sm:py-8 px-1 shrink-0 ${color} `}>
+      <div className={`w-10 sm:w-14 flex flex-col gap-2 justify-between py-4 sm:py-8 px-1 shrink-0 ${color}  group-hover:bg-[#1A2E1A] transition-all duration-300`}>
         <h3
           className="text-white md:text-xl text-sm font-semibold tracking- uppercase whitespace-nowrap mx-auto md:pl-2 pl-1 "
           style={{ writingMode: 'vertical-lr' }}
@@ -85,14 +85,14 @@ const Projects = () => {
       title: "TECHNOPARK, TRIVANDRUM",
       year: "2024",
       image: "/proj2.svg",
-      color: "bg-[#1A2E1A]",
+      color: " bg-[#708253] ",
     },
     {
       id: 4,
       title: "NATIONAL INSTITUTE OF TECHNOLOGY, CALICUT",
       year: "2025",
       image: "/proj4.svg",
-      color: "bg-[#839665]",
+      color: "bg-[#708253]",
     }
   ];
 

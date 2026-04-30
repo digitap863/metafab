@@ -29,7 +29,7 @@ const listItems = [
 
 const Trust = () => {
   return (
-    <section className="relative w-full py-20 lg:py-32 px-4 md:px-10 lg:px-2 overflow-hidden min-h-[800px] flex items-center">
+    <section className="relative w-full py-20 lg:py-32 px-4 md:px-10 lg:px-20 overflow-hidden min-h-[800px] flex items-center">
 
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
@@ -56,9 +56,6 @@ const Trust = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[66px] font-semibold text-white uppercase leading-[1.2] md:leading-[1.1] tracking-tight">
             WHY<br className="hidden sm:block" /> INDUSTRY LEADERS <br className="hidden sm:block" />TRUST US
           </h2>
-          <button className="bg-[#FFD900] text-[#071F07] text-sm md:text-base font-bold py-3 md:py-3.5 px-8 md:px-10 rounded-full hover:bg-[#E5C300] transition-colors mt-4 md:mt-2">
-            View All
-          </button>
         </div>
 
         {/* Bottom Section */}

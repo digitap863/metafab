@@ -134,7 +134,7 @@ const Banner = () => {
                   hover:border-white hover:bg-white/10 
                   transition-all duration-300 w-fit"
                             >
-                                <span className="text-black bg-[#FFD900] text-sm font-medium tracking-wide">
+                                <span className="text-black  text-sm font-medium tracking-wide">
                                     Contact Now
                                 </span>
                             </Link>

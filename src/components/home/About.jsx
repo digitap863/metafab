@@ -151,7 +151,7 @@ const About = () => {
               <div className="flex items-center gap-5 flex-wrap" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-2.5 bg-[#FFD900] hover:bg-[#1A1A1A] text-black  border border-black
+                  className="group inline-flex items-center gap-2.5 bg-[#FFD900] text-black  border border-black
                     rounded-full px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300"
                 >
                   <span>Explore Collection</span>

@@ -171,7 +171,7 @@ const ProjectsBanner = () => {
               className="max-w-[1400px] w-full flex flex-col md:flex-row items-stretch">
                 {/* Image Container */}
                 <div
-                  className="w-full md:w-[70%] relative h-[300px] md:h-[500px] lg:h-[600px] rounded-t-2xl overflow-hidden"
+                  className="w-full md:w-[70%] relative h-[300px] md:h-[500px] lg:h-[600px] rounded-t-2xl md:rounded-2xl overflow-hidden"
                  
                 >
                   <Image
@@ -184,7 +184,7 @@ const ProjectsBanner = () => {
 
                 {/* Details Box */}
                 <div
-                  className={`w-full md:w-[30%] flex flex-col justify-center p-8 lg:p-14 rounded-b-2xl ${isFirstTwo ? "bg-white text-[#071F07]" : "bg-[#A7B582] text-white"
+                  className={`w-full md:w-[30%] flex flex-col justify-center p-8 lg:p-14 rounded-b-2xl md:rounded-2xl ${isFirstTwo ? "bg-white text-[#071F07]" : "bg-[#A7B582] text-white"
                     }`}
                 >
                   <div className="flex flex-col gap-10 md:gap-16">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const DiamondIcon = () => (
   <svg
@@ -101,9 +102,11 @@ const Faq = () => {
             <p className="text-white/80 text-sm md:text-base leading-relaxed">
               Reach out to our design experts for personalized guidance on your next home project.
             </p>
-            <button className="bg-[#FFD900] text-[#071F07] text-sm md:text-base font-semibold py-3.5 px-8 rounded-full w-max hover:bg-[#E5C300] transition-colors mt-2">
-              Contact Now
-            </button>
+            <Link href="/contact" className="w-max">
+              <button className="bg-[#FFD900] text-[#071F07] text-sm md:text-base font-semibold py-3.5 px-8 rounded-full w-max hover:bg-[#E5C300] transition-colors mt-2">
+                Contact Now
+              </button>
+            </Link>
           </div>
         </div>
 

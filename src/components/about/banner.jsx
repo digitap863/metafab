@@ -49,7 +49,7 @@ const AboutBanner = () => {
   return (
 
     <section>
-      <div className="w-full bg-[#A7B582] pt-26 pb-14 px-4 md:px-10 lg:px-20 lg:pt-40 lg:pb-24 overflow-hidden">
+      <div className="w-full bg-[#A7B582] pt-28 pb-14 px-4 md:px-10 lg:px-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <div className="max-w-[1400px] w-full flex gap-10">
 
           <div
@@ -74,11 +74,11 @@ const AboutBanner = () => {
           <div className=" w-full mx-auto flex flex-col items-start text-left w-[71%]">
             {/* Main Heading */}
             <h1
-              className="text-[12vw] sm:text-[12vw] md:text-[100px] lg:text-[130px] font-bold leading-none tracking-tighter mb-4 md:mb-12"
+              className="text-[12vw] sm:text-[12vw] md:text-[100px] lg:text-[130px] font-bold leading-none tracking-tighter mb-4 md:mb-12 flex flex-wrap items-baseline gap-[0.2em]"
             >
               <span ref={aboutRef} className="text-[#071F07] inline-block">ABOUT</span>
-              <span className="inline-block overflow-hidden align-bottom">
-                <span ref={usRef} className="text-white inline-block">US </span>
+              <span className="inline-block overflow-hidden">
+                <span ref={usRef} className="text-white inline-block">US</span>
               </span>
             </h1>
 

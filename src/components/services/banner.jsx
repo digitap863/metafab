@@ -101,7 +101,7 @@ function Banner() {
             >
               {/* Image Container */}
               <div
-                className="w-full lg:w-[54%] relative min-h-[300px] md:min-h-[400px] rounded-t-2xl overflow-hidden"
+                className="w-full lg:w-[54%] relative min-h-[300px] md:min-h-[400px] rounded-t-2xl md:rounded-2xl overflow-hidden"
                 data-aos={isEven ? "fade-right" : "fade-left"}
                 data-aos-duration="1000"
               >
@@ -109,7 +109,7 @@ function Banner() {
               </div>
 
               {/* Text Box */}
-              <div className="flex flex-col sm:flex-row items-start gap-6 w-full lg:w-[46%] bg-white rounded-b-2xl p-4 md:p-10 ">
+              <div className="flex flex-col sm:flex-row items-start gap-6 w-full lg:w-[46%] bg-white rounded-b-2xl md:rounded-2xl p-4 md:p-10 ">
                 <div className="w-20 h-20 rounded-full bg-[#8A9A5B] flex items-center justify-center text-white shrink-0 shadow-inner overflow-hidden relative md:block  hidden ">
                   <Image src="/services/icc.svg" alt="icon" width={32} height={32} className="object-contain h-20 w-auto" />
                 </div>

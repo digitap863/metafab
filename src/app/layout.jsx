@@ -17,7 +17,7 @@ export const metadata = {
   title: "MetaFab",
   description: "MetaFab",
   icons: {
-    icon: "/logo.png",
+    icon: "/favicon.png",
   },
 };
 
