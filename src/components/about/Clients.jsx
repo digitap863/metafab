@@ -37,11 +37,11 @@ const clientLogo = [
 
 const Clients = () => {
   return (
-    <section className="w-full bg-white py-16 lg:py-24 px-6 md:px-10 lg:px-20 overflow-hidden">
+    <section className="w-full bg-white pt-4 pb-10 lg:pt-24 lg:pb-24 px-4 md:px-10 lg:px-20 overflow-hidden">
       <div className="max-w-[1400px] w-full mx-auto flex flex-col items-center">
         
         {/* Header */}
-        <h2 className="text-4xl md:text-5xl lg:text-[60px] font-bold uppercase tracking-tight mb-16 md:mb-20 text-center">
+        <h2 className="text-4xl md:text-5xl lg:text-[60px] font-bold uppercase tracking-tight mb-10 md:mb-20 text-center">
           <span className="text-[#071F07]">OUR </span>
           <span className="text-[#6E864A]">CLIENTS</span>
         </h2>
@@ -51,7 +51,7 @@ const Clients = () => {
           <Swiper
             modules={[Autoplay]}
             spaceBetween={40}
-            slidesPerView={2}
+            slidesPerView={2.3}
             loop={true}
             autoplay={{
               delay: 2500,
@@ -93,11 +93,12 @@ const Clients = () => {
           <Swiper
             modules={[Autoplay]}
             spaceBetween={40}
-            slidesPerView={2}
+            slidesPerView={2.5}
             loop={true}
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
+              reverseDirection: true,
             }}
             breakpoints={{
               480: {

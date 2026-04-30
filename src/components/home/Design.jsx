@@ -2,7 +2,7 @@ import React from 'react';
 
 const Design = () => {
   return (
-    <section className="relative w-full h-screen min-h-[600px] flex overflow-hidden">
+    <section className="relative w-full md:h-screen h-[50vh] flex overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 z-0 w-full h-full bg-center bg-cover bg-no-repeat"
@@ -15,7 +15,7 @@ const Design = () => {
         
         {/* Top Section */}
         <div className="flex items-start">
-          <div className="flex flex-col items-center mr-4 mt-1">
+          <div className="hidden md:flex flex-col items-center mr-4 mt-1">
             {/* Diamond shape */}
             <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 0L7.5 4.5L12 6L7.5 7.5L6 12L4.5 7.5L0 6L4.5 4.5L6 0Z" fill="white"/>
@@ -27,14 +27,14 @@ const Design = () => {
               <path d="M6 0L7.5 4.5L12 6L7.5 7.5L6 12L4.5 7.5L0 6L4.5 4.5L6 0Z" fill="white"/>
             </svg>
           </div>
-          <div className="text-white text-sm md:text-base font-bold tracking-widest leading-tight mt-0.5">
+          <div className="text-white text-lg md:text-base md:font-bold tracking-widest leading-tight md:mt-0.5 mt-2">
             DESIGN YOUR SPACE <br /> WITH PURPOSE
           </div>
         </div>
 
         {/* Middle Section - Main Title */}
         <div className="flex-1 flex flex-col justify-center -mt-5 md:-mt-10 pl-7">
-          <h1 className="text-white font-semibold text-6xl sm:text-7xl  uppercase">
+          <h1 className="text-white font-semibold text-4xl sm:text-7xl  uppercase">
             Let's Design <br />
             Your Dream <br />
             <span className="text-[#F2E5CE]">Space</span>

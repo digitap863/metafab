@@ -125,14 +125,14 @@ const StatCard = ({ value, suffix = "", label, sublabel, variant = "light", clas
 
 const About = () => {
   return (
-    <section className="w-full bg-[#B5BC8D] py-14 md:pt-40 md:pb-28 ">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+    <section className="w-full bg-[#B5BC8D] pt-24 pb-14 md:pt-40 md:pb-28 ">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-10">
         {/* Main Grid: Left content + Right stats */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-14">
           {/* ===== LEFT COLUMN ===== */}
           <div className="flex flex-col gap-8 lg:gap-10">
             {/* Top Left: Text + Buttons */}
-            <div className="flex flex-col gap-6 sm:gap-8 pb-10">
+            <div className="flex flex-col gap-6 sm:gap-8 md:pb-10">
               {/* About Us label */}
               <div className="flex items-center gap-2.5">
                 <DiamondIcon />
@@ -184,7 +184,7 @@ const About = () => {
           <div className="grid grid-cols-2 grid-rows-2 h-full">
             {/* Top Row */}
             <StatCard
-              value={2014}
+              value={20}
               label="Years of Expertise"
               sublabel="Over a decade of transforming spaces"
               variant="olive"

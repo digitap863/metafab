@@ -54,18 +54,27 @@ const DecorativeLine = () => (
 const Banner = () => {
 
     return (
-        <section className="relative w-full h-[130vh] overflow-visible">
+        <section className="relative w-full md:h-[130vh] h-[80vh] overflow-visible">
             {/* Background Image */}
             <div className="absolute inset-0 z-0 overflow-hidden">
+                {/* Desktop and Tablet Image */}
                 <Image
                     src="/banner.svg"
                     alt="Modern office interior with elegant wooden desk and premium furniture"
                     fill
-                    className="object-cover"
+                    className="object-cover hidden sm:block"
+                    priority
+                />
+                {/* Mobile Image */}
+                <Image
+                    src="/contactimgg.svg"
+                    alt="Modern office interior with elegant wooden desk and premium furniture"
+                    fill
+                    className="object-cover block sm:hidden"
                     priority
                 />
                 {/* Dark overlay */}
-                <div className="absolute inset-0 bg-black/25" />
+                <div className="hidden md:absolute inset-0 bg-black/25" />
             </div>
 
             {/* Content Layer */}
@@ -87,9 +96,9 @@ const Banner = () => {
                     </div>
 
                     {/* Right: Decorative line + Services */}
-                    <div className="hidden md:flex items-stretch gap-3 pt-8 md:pt-16 lg:pt-20 self-stretch">
+                    <div className="hidden md:flex items-stretch gap-3 pt-8 md:pt-16 lg:pt-20 self-stretch ">
                         <DecorativeLine />
-                        <div className="flex flex-col justify-center">
+                        <div className="flex flex-col justify-center ">
                             <div className="space-y-2 lg:space-y-3">
                                 {servicesList.map((service, index) => (
                                     <p
@@ -112,7 +121,7 @@ const Banner = () => {
                             <DecorativeLine />
                         </div>
 
-                        <div className="flex flex-col justify-end gap-5">
+                        <div className="flex flex-col justify-end gap-5 relative bottom-14 md:bottom-0 ">
                             <h2 className="text-white text-sm md:text-lg font-medium leading-relaxed uppercase ">
                                 Designing Office <br /> Interiors{" "}
                                 <span className="text-[#F1DFC2]">Since <br /> 2000</span>
@@ -133,9 +142,9 @@ const Banner = () => {
                     </div>
 
                     {/* ===== BOTTOM RIGHT: Swiper Continuous Scroll (overlaps below) ===== */}
-                    <div className="hidden lg:block absolute bottom-0 right-6 sm:right-10 lg:right-16 xl:right-20 
+                    <div className=" absolute bottom-0 right-0 lg:right-16 xl:right-20 
                         translate-y-[40%] z-20">
-                        <div className="relative w-[500px] xl:w-[600px] rounded-2xl border border-[#5C6B4F]/50 
+                        <div className="relative w-[400px] xl:w-[600px] md:rounded-2xl border border-[#5C6B4F]/50 
                             bg-[#FFFFFF]/100 backdrop-blur-sm p-3 shadow-2xl overflow-hidden">
                             <Swiper
                                 modules={[Autoplay, FreeMode]}
@@ -153,7 +162,7 @@ const Banner = () => {
                             >
                                 {scrollImages.map((src, index) => (
                                     <SwiperSlide key={index}>
-                                        <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden ">
+                                        <div className="relative w-full md:aspect-[4/3] aspect-[3.5/3] rounded-xl overflow-hidden ">
                                             <Image
                                                 src={src}
                                                 alt={`Project showcase ${index + 1}`}
@@ -168,7 +177,7 @@ const Banner = () => {
                     </div>
 
                     {/* Mobile: Services list */}
-                    <div className="md:hidden">
+                    <div className="hidden">
                         <div className="space-y-1.5">
                             {servicesList.map((service, index) => (
                                 <p

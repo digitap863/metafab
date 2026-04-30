@@ -29,28 +29,28 @@ const timelineData = [
 
 const Story = () => {
   return (
-    <section className="w-full bg-white py-20 lg:py-32 px-6 md:px-10 lg:px-20 overflow-hidden">
+    <section className="w-full bg-white py-20 lg:py-32 px-4 md:px-10 lg:px-20 overflow-hidden">
       <div className="max-w-[1400px] w-full mx-auto flex flex-col">
         
         {/* Header Section */}
-        <div className="flex flex-col items-start mb-10 lg:mb-16">
+        <div className="flex flex-col items-start mb-6 lg:mb-16">
           <div className="flex items-center gap-2 mb-4">
             <DiamondIcon />
             <span className="text-[#071F07] text-sm font-semibold tracking-wider">
               Our Story
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-[70px] font-semibold uppercase tracking-tight">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-[70px] font-semibold uppercase tracking-tight">
             <span className="text-[#071F07]">CREATING BEAUTIFUL </span>
             <span className="text-[#6E864A]">SPACES</span>
           </h2>
         </div>
 
         {/* Images Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-6 gap-4 mb-6">
           
           {/* Left Image */}
-          <div className="relative w-full aspect-[4/3] lg:aspect-[2.5/2] rounded-2xl overflow-hidden shadow-sm">
+          <div className="relative w-full aspect-[4/3] lg:aspect-[2.5/2] rounded-2xl overflow-hidden shadow-sm md:block hidden">
             <Image 
               src="/about/img3.svg" 
               alt="Office space with two chairs" 
@@ -79,16 +79,16 @@ const Story = () => {
         </div>
 
         {/* Timeline Cards Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-6 gap-3 ">
           {timelineData.map((item, index) => (
             <div 
               key={index}
-              className="bg-[#6E864A] rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[180px] lg:min-h-[220px] shadow-sm hover:shadow-md transition-shadow"
+              className="bg-[#A7B582] md:bg-[#6E864A] rounded-xl md:rounded-2xl px-6 py-5 md:p-8 flex flex-row md:flex-col items-center md:items-start justify-start md:justify-between gap-6 md:gap-0 min-h-0 md:min-h-[120px] lg:min-h-[220px] shadow-sm hover:shadow-md transition-shadow"
             >
-              <h3 className="text-4xl lg:text-5xl font-semibold text-[#071F07]">
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold md:font-semibold text-[#0B120D] md:text-[#071F07]">
                 {item.year}
               </h3>
-              <h4 className="text-lg lg:text-xl font-semibold text-[#071F07] uppercase leading-snug whitespace-pre-line">
+              <h4 className="text-sm md:text-lg lg:text-xl font-bold md:font-semibold text-[#0B120D] md:text-[#071F07] uppercase leading-snug md:whitespace-pre-line">
                 {item.title}
               </h4>
             </div>

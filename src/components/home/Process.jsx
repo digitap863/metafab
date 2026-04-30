@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 const DiamondIcon = ({ white }) => (
   <svg
     width="16"
@@ -27,22 +29,22 @@ const StepCard = ({ step, title, desc, image }) => {
         <div className="w-1.5 h-1.5 rounded-full bg-[#FFD900]" />
         <span className="text-[#FFD900] text-[13px] font-bold tracking-wider">Step {step}</span>
       </div>
-      
+
       {/* Image */}
       <div className="relative w-full aspect-video sm:aspect-[21/9] lg:aspect-video my-2">
-        <Image 
-          src={image} 
-          alt={title} 
-          fill 
-          className="object-contain object-left lg:object-center" 
-          sizes="(max-width: 1024px) 100vw, 33vw" 
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-contain object-left lg:object-center"
+          sizes="(max-width: 1024px) 100vw, 33vw"
         />
       </div>
-      
+
       {/* Text Info */}
       <div className="flex flex-col gap-2 w-full">
         <h3 className="text-white text-xl font-bold uppercase tracking-wide">{title}</h3>
-        <p className="text-white/60 text-[13px] leading-relaxed lg:max-w-[90%]">{desc}</p>
+        <p className="text-white/60 text-[13px] leading-relaxed lg:max-w-[90%] md:h-auto h-16">{desc}</p>
       </div>
     </div>
   );
@@ -50,35 +52,35 @@ const StepCard = ({ step, title, desc, image }) => {
 
 const Process = () => {
   const steps = [
-    { 
-      step: "01", 
-      title: "Discovery", 
-      desc: "We start by understanding your style, needs, and vision for the space.", 
-      image: "/pro01.svg" 
+    {
+      step: "01",
+      title: "Discovery",
+      desc: "We start by understanding your style, needs, and vision for the space.",
+      image: "/pro01.svg"
     },
-    { 
-      step: "02", 
-      title: "Concept Design", 
-      desc: "Our team creates mood boards and design ideas that capture your aesthetic.", 
-      image: "/pro02.svg" 
+    {
+      step: "02",
+      title: "Concept Design",
+      desc: "Our team creates mood boards and design ideas that capture your aesthetic.",
+      image: "/pro02.svg"
     },
-    { 
-      step: "03", 
-      title: "Planning", 
-      desc: "Every detail is refined — from layout to materials — for perfect balance and function.", 
-      image: "/pro03.svg" 
+    {
+      step: "03",
+      title: "Planning",
+      desc: "Every detail is refined — from layout to materials — for perfect balance and function.",
+      image: "/pro03.svg"
     },
-    { 
-      step: "04", 
-      title: "Execution", 
-      desc: "We bring the design to life with precision, care, and expert craftsmanship.", 
-      image: "/pro04.svg" 
+    {
+      step: "04",
+      title: "Execution",
+      desc: "We bring the design to life with precision, care, and expert craftsmanship.",
+      image: "/pro04.svg"
     },
-    { 
-      step: "05", 
-      title: "Final Touch", 
-      desc: "A complete review and styling ensure your space feels truly finished and personal.", 
-      image: "/pro01.svg" 
+    {
+      step: "05",
+      title: "Final Touch",
+      desc: "A complete review and styling ensure your space feels truly finished and personal.",
+      image: "/pro01.svg"
     },
   ];
 
@@ -86,108 +88,128 @@ const Process = () => {
     <section className="relative w-full bg-[#0B120D] pt-10 pb-10 lg:pt-20 lg:pb-10 overflow-hidden">
       {/* Background Frame Image */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <Image 
-          src="/processbg.svg" 
-          alt="Background frames" 
-          fill 
-          className="object-cover opacity-60" 
+        <Image
+          src="/processbg.svg"
+          alt="Background frames"
+          fill
+          className="object-cover opacity-60"
         />
       </div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-10">
 
-        <div className="flex  ">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 w-full relative">
 
-        {/* Heading */}
-
-            {/* Heading */}
-          <div className="md:w-[20%] w-full  gap-4  ">
-            <div className="flex items-center gap-2.5 pb-3">
+          {/* Heading */}
+          <div className="lg:w-[20%] w-full flex flex-col items-center lg:items-start text-center lg:text-left gap-1">
+            <div className="flex items-center justify-center lg:justify-start gap-2.5 pb-2 lg:pb-3">
               <DiamondIcon white />
               <span className="text-white text-[13px] font-semibold tracking-widest uppercase">
                 Our Process
               </span>
             </div>
-            <h2 className="text-white text-4xl md:text-6xl font-semibold leading-[1.05] tracking-tight">
-              OUR<br />DESIGN
+            <h2 className="text-white text-[28px] lg:text-6xl font-semibold leading-[1.05] tracking-tight whitespace-nowrap">
+              OUR <span className="lg:hidden">DESIGN</span>
+              <br className="hidden lg:block" />
+              <span className="hidden lg:inline">DESIGN</span>
             </h2>
           </div>
-          
-        
-        {/* Responsive Grid Layout */}
-        <div className="md:w-[80%] w-full  grid grid-cols-1 lg:grid-cols-3 md:gap-x-0 gap-y-12 lg:gap-y-0">
-          
-          {/* ====== LEFT COLUMN ====== */}
-      
 
-          {/* Step 02 - Concept Design */}
-          <div className="lg:col-start-1 lg:row-start-2 relative lg:mt-16 flex items-center relative ">
-            <div className="hidden lg:block w-[124px] -left-10 absolute ">
-              <Image 
-                src="/arrow.svg" 
-                alt="Arrow" 
-                width={124}
-                height={124}
-                className="object-contain " 
-              />
+          {/* ====== MOBILE SWIPER ====== */}
+          <div className="lg:hidden w-full overflow-visible mt-2">
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={16}
+              slidesPerView={1.2}
+              centeredSlides={true}
+              loop={true}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              className="w-full !overflow-visible"
+            >
+              {steps.map((step, index) => (
+                <SwiperSlide key={index}>
+                  <div className="border border-white/10 rounded-2xl p-5 bg-black/10 backdrop-blur-md flex flex-col h-full mx-auto max-w-[340px]">
+                    <StepCard {...step} />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          {/* Responsive Grid Layout (Desktop only) */}
+          <div className="hidden lg:grid w-full lg:w-[80%] grid-cols-3 gap-x-0 gap-y-0">
+
+            {/* ====== LEFT COLUMN ====== */}
+
+
+            {/* Step 02 - Concept Design */}
+            <div className="lg:col-start-1 lg:row-start-2 relative lg:mt-16 flex items-center relative ">
+              <div className="hidden lg:block w-[124px] -left-10 absolute ">
+                <Image
+                  src="/arrow.svg"
+                  alt="Arrow"
+                  width={124}
+                  height={124}
+                  className="object-contain "
+                />
+              </div>
+              <div className="relative left-14">
+                <StepCard {...steps[1]} />
+              </div>
             </div>
-            <div className="relative left-14">
-            <StepCard {...steps[1]} />
+
+            {/* Step 04 - Execution */}
+            <div className="lg:col-start-1 lg:row-start-3 lg:mt-10 lg:py-16 relative lg:-left-20">
+              <StepCard {...steps[3]} />
             </div>
-          </div>
-
-          {/* Step 04 - Execution */}
-          <div className="lg:col-start-1 lg:row-start-3 lg:mt-10 lg:py-16 relative lg:-left-20">
-            <StepCard {...steps[3]} />
-          </div>
 
 
-          {/* ====== CENTER COLUMN ====== */}
-          {/* Step 01 - Discovery */}
-          <div className="lg:col-start-2 lg:row-start-1 relative lg:mt-16">
-            <StepCard {...steps[0]} />
+            {/* ====== CENTER COLUMN ====== */}
+            {/* Step 01 - Discovery */}
+            <div className="lg:col-start-2 lg:row-start-1 relative lg:mt-16">
+              <StepCard {...steps[0]} />
 
-            {/* Arrow pointing down */}
-            <div className="hidden lg:block absolute top-[40%] -left-[35%] ">
-              <Image 
-                src="/arrow.svg" 
-                alt="Arrow" 
-                width={124}
-                height={124}
-                className="object-contain" 
-              />
+              {/* Arrow pointing down */}
+              <div className="hidden lg:block absolute top-[40%] -left-[35%] ">
+                <Image
+                  src="/arrow.svg"
+                  alt="Arrow"
+                  width={124}
+                  height={124}
+                  className="object-contain"
+                />
+              </div>
             </div>
-          </div>
 
-          {/* Step 05 - Final Touch */}
-          <div className="lg:col-start-2 lg:row-start-3 lg:mt-32 lg:ml-2 relative lg:left-32">
-            <StepCard {...steps[4]} />
-          </div>
+            {/* Step 05 - Final Touch */}
+            <div className="lg:col-start-2 lg:row-start-3 lg:mt-32 lg:ml-2 relative lg:left-32">
+              <StepCard {...steps[4]} />
+            </div>
 
 
-          {/* ====== RIGHT COLUMN ====== */}
-          {/* Step 03 - Planning */}
-          <div className="lg:col-start-3 lg:row-start-2 relative lg:mt-16 flex items-center">
+            {/* ====== RIGHT COLUMN ====== */}
+            {/* Step 03 - Planning */}
+            <div className="lg:col-start-3 lg:row-start-2 relative lg:mt-16 flex items-center">
               <div className="hidden lg:block w-[124px] absolute -left-10">
-              <Image 
-                src="/arrow.svg" 
-                alt="Arrow" 
-                width={124}
-                height={124}
-                className="object-contain" 
-              />
+                <Image
+                  src="/arrow.svg"
+                  alt="Arrow"
+                  width={124}
+                  height={124}
+                  className="object-contain"
+                />
+              </div>
+
+              <div className="relative left-14">
+
+                <StepCard {...steps[2]} />
+              </div>
+
+              {/* Arrow pointing down */}
+
             </div>
 
-            <div className="relative left-14">
-
-            <StepCard {...steps[2]} />
-            </div>
-            
-            {/* Arrow pointing down */}
-          
           </div>
-
-        </div>
 
         </div>
       </div>

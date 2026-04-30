@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 const DiamondIcon = () => (
   <svg
@@ -49,7 +49,7 @@ const faqData = [
 const FaqItem = ({ question, answer, isOpen, onClick }) => {
   return (
     <div className="border-b border-[#071F07]/10">
-      <button 
+      <button
         onClick={onClick}
         className="w-full py-6 md:py-8 flex items-center justify-between text-left focus:outline-none group"
       >
@@ -58,11 +58,11 @@ const FaqItem = ({ question, answer, isOpen, onClick }) => {
         </h4>
         <div className={`transform transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
           <svg width="14" height="8" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1.5L8 8.5L15 1.5" stroke="#071F07" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M1 1.5L8 8.5L15 1.5" stroke="#071F07" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
       </button>
-      <div 
+      <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-40 opacity-100 pb-8' : 'max-h-0 opacity-0'}`}
       >
         <p className="text-[#071F07]/70 text-sm md:text-base leading-relaxed pr-8">
@@ -77,11 +77,11 @@ const Faq = () => {
   const [openIndex, setOpenIndex] = useState(-1);
 
   return (
-    <section className="w-full bg-white pb-20 lg:pb-32 px-6 md:px-10 lg:px-20 overflow-hidden">
-      <div className="max-w-[1400px] w-full mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-20">
-        
+    <section className="w-full bg-white pb-20 lg:pb-32 px-4 md:px-10 lg:px-20 overflow-hidden">
+      <div className="max-w-[1400px] w-full mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-20">
+
         {/* Left Column */}
-        <div className="lg:col-span-1 flex flex-col gap-10">
+        <div className="lg:col-span-1 flex flex-col md:gap-10 gap-6 ">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <DiamondIcon />
@@ -110,7 +110,7 @@ const Faq = () => {
         {/* Right Column (Accordion) */}
         <div className="lg:col-span-2 flex flex-col pt-2">
           {faqData.map((faq, index) => (
-            <FaqItem 
+            <FaqItem
               key={index}
               question={faq.question}
               answer={faq.answer}

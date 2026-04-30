@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
 const DiamondIcon = () => (
   <svg
@@ -22,33 +25,33 @@ const DiamondIcon = () => (
 
 const ProjectCard = ({ title, year, image, color, link = "#" }) => {
   return (
-    <Link 
-      href={link} 
-      className="group flex w-full rounded-2xl overflow-hidden h-[380px]  md:h-[660px] "
+    <Link
+      href={link}
+      className="group flex w-full rounded-xl overflow-hidden h-[440px]  md:h-[660px] "
     >
       {/* Vertical Strip */}
-      <div className={`w-12 sm:w-14 flex flex-col justify-between py-6 sm:py-8 px-1 shrink-0 ${color} `}>
-        <h3 
-          className="text-white text-xl font-semibold tracking- uppercase whitespace-nowrap mx-auto pl-2 " 
+      <div className={`w-10 sm:w-14 flex flex-col gap-2 justify-between py-4 sm:py-8 px-1 shrink-0 ${color} `}>
+        <h3
+          className="text-white md:text-xl text-sm font-semibold tracking- uppercase whitespace-nowrap mx-auto md:pl-2 pl-1 "
           style={{ writingMode: 'vertical-lr' }}
         >
           {title}
         </h3>
-        <span 
-          className="text-white text-xl font-semibold mx-auto pl-3" 
+        <span
+          className="text-white md:text-xl text-sm font-semibold mx-auto md:pl-3 pl-1"
           style={{ writingMode: 'vertical-lr' }}
         >
-          {year}
+          {  year}
         </span>
       </div>
-      
+
       {/* Image Container */}
       <div className="relative w-full h-full overflow-hidden bg-gray-200">
-        <Image 
-          src={image} 
-          alt={title} 
-          fill 
-          className="object-cover transition-transform duration-700 group-hover:scale-105" 
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
         {/* Subtle hover overlay */}
@@ -62,7 +65,7 @@ const Projects = () => {
   const leftProjects = [
     {
       id: 1,
-      title: "FEDERAL BANK, ERNAKULAMK",
+      title: "FEDERAL BANK, ERNAKULAMK ",
       year: "2024",
       image: "/proj1.svg",
       color: "bg-[#708253]",
@@ -95,11 +98,11 @@ const Projects = () => {
 
   return (
     <section className="w-full bg-white py-16 sm:py-24 lg:py-32">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10">
-        
+      <div className="max-w-[1400px] mx-auto px-4 md:px-10">
+
         {/* Responsive Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 xl:gap-x-16 gap-y-12">
-          
+
           {/* ==== LEFT COLUMN ==== */}
           <div className="flex flex-col gap-6 sm:gap-10">
             {/* Header Title (Left side) */}
@@ -110,40 +113,82 @@ const Projects = () => {
                   Our Projects
                 </span>
               </div>
-              <h2 className="text-[#1A1A1A] text-4xl md:text-6xl font-bold uppercase  tracking-tight whitespace-nowrap">
+              <h2 className="text-[#1A1A1A] text-3xl md:text-6xl font-bold uppercase  tracking-tight whitespace-nowrap">
                 Our Featured <span className="text-[#2D3A1F]">Work</span>
               </h2>
+
+              <div className="flex flex-col items-end justify-end gap-6 lg:pt-[4.5rem] xl:pt-[5rem] mb-2 lg:mb-6 md:hidden block">
+              <div>
+                <p className="text-[#6B6B6B] text-[13px] sm:text-sm leading-relaxed max-w-[420px] pb-7">
+                  Discover our collection of thoughtfully designed interiors — each project reflecting modern aesthetics, functionality, and comfort for everyday living.
+                </p>
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center justify-center bg-[#FFD900] hover:bg-[#1A1A1A] text-[#1A1A1A] hover:text-white rounded-full px-7 py-3 text-xs font-bold tracking-wide transition-all duration-300 w-fit"
+                >
+                  View All Projects
+                </Link>
+              </div>
+            </div>
+
+
             </div>
 
             {/* Left Column Projects */}
+            <div className="hidden lg:flex flex-col gap-6">
             {leftProjects.map((project) => (
               <ProjectCard key={project.id} {...project} />
             ))}
+            </div>
+
+
           </div>
 
           {/* ==== RIGHT COLUMN ==== */}
-          <div className="flex flex-col gap-6 sm:gap-10">
+          <div className="flex flex-col gap-6 sm:gap-10  ">
             {/* Right side Text & Button */}
-            <div className="flex flex-col items-end justify-end gap-6 lg:pt-[4.5rem] xl:pt-[5rem] mb-2 lg:mb-6">
-                <div>
-              <p className="text-[#6B6B6B] text-[13px] sm:text-sm leading-relaxed max-w-[420px] pb-7">
-                Discover our collection of thoughtfully designed interiors — each project reflecting modern aesthetics, functionality, and comfort for everyday living.
-              </p>
-              <Link
-                href="/projects"
-                className="inline-flex items-center justify-center bg-[#FFD900] hover:bg-[#1A1A1A] text-[#1A1A1A] hover:text-white rounded-full px-7 py-3 text-xs font-bold tracking-wide transition-all duration-300 w-fit"
-              >
-                View All Projects
-              </Link>
+            <div className="md:flex flex-col items-end justify-end gap-6 lg:pt-[4.5rem] xl:pt-[5rem] mb-2 lg:mb-6  hidden">
+              <div>
+                <p className="text-[#6B6B6B] text-[13px] sm:text-sm leading-relaxed max-w-[420px] pb-7">
+                  Discover our collection of thoughtfully designed interiors — each project reflecting modern aesthetics, functionality, and comfort for everyday living.
+                </p>
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center justify-center bg-[#FFD900] hover:bg-[#1A1A1A] text-[#1A1A1A] hover:text-white rounded-full px-7 py-3 text-xs font-bold tracking-wide transition-all duration-300 w-fit"
+                >
+                  View All Projects
+                </Link>
               </div>
             </div>
 
             {/* Right Column Projects */}
+            <div className="hidden lg:flex flex-col gap-6">
             {rightProjects.map((project) => (
               <ProjectCard key={project.id} {...project} />
             ))}
+            </div>
+
+            <div className="lg:hidden block">
+              <Swiper
+                modules={[Autoplay]}
+                spaceBetween={8}
+                slidesPerView={1}
+                loop={true}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                breakpoints={{
+                  768: { slidesPerView: 2.2, spaceBetween: 12 },
+                }}
+                className="w-full pb-4"
+              >
+                {[...leftProjects, ...rightProjects].map((project) => (
+                  <SwiperSlide key={project.id}>
+                    <ProjectCard {...project} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           </div>
-          
+
         </div>
       </div>
     </section>

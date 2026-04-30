@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 
 const DiamondIcon = () => (
@@ -49,9 +48,9 @@ const awardsData = [
 
 const AwardShowcase = () => {
   return (
-    <section className="w-full bg-white py-20 lg:py-32 px-6 md:px-10 lg:px-20 overflow-hidden">
+    <section className="w-full bg-white py-20 lg:py-32 px-4 md:px-10 lg:px-2 overflow-hidden">
       <div className="max-w-[1400px] w-full mx-auto flex flex-col">
-        
+
         {/* Header Section */}
         <div className="flex flex-col items-center justify-center text-center mb-16 md:mb-20">
           <div className="flex items-center gap-2 mb-4">
@@ -60,31 +59,31 @@ const AwardShowcase = () => {
               Award Showcase
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-[70px] font-semibold uppercase tracking-tight flex flex-col items-center leading-tight lg:leading-[1.1]">
-            <span className="text-[#071F07]">CELEBRATING CREATIVE</span>
+          <h2 className="text-3xl md:text-5xl lg:text-[70px] font-semibold uppercase tracking-tight flex flex-col items-center leading-tight lg:leading-[1.1]">
+            <span className="text-[#071F07] whitespace-nowrap">CELEBRATING CREATIVE</span>
             <span className="text-[#6E864A]">EXCELLENCE</span>
           </h2>
         </div>
 
         {/* Content Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
-          
+
           {/* Left Column (Image) */}
-          <div className="lg:col-span-1 relative w-full rounded-2xl overflow-hidden shadow-sm min-h-[500px] lg:min-h-full">
-            <Image 
-              src="/about/flower.svg" 
-              alt="Flower in a vase" 
-              fill 
-              className="object-cover" 
+          <div className="lg:col-span-1 relative w-full rounded-2xl overflow-hidden shadow-sm min-h-[600px] lg:min-h-full">
+            <Image
+              src="/about/flower.svg"
+              alt="Flower in a vase"
+              fill
+              className="object-cover"
             />
           </div>
 
           {/* Right Column (Awards List) */}
           <div className="lg:col-span-2 flex flex-col justify-between">
             {awardsData.map((award, index) => (
-              <div 
-                key={index} 
-                className="p-6 lg:py-8 lg:px-10 flex flex-col gap-2 bg-transparent hover:bg-[#A7B582] transition-colors duration-300 cursor-default"
+              <div
+                key={index}
+                className="p-4 lg:py-8 lg:px-10 flex flex-col gap-2 bg-transparent border-b border-[#071F07]/10 lg:border-none last:border-none hover:bg-[#A7B582]/30 lg:hover:bg-[#A7B582] active:bg-[#A7B582] transition-colors duration-300 cursor-default rounded-lg lg:rounded-none"
               >
                 <h3 className="text-2xl lg:text-[32px] font-semibold text-[#071F07] tracking-tight">
                   {award.year} — {award.title}

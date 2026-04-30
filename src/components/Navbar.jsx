@@ -60,12 +60,12 @@ const Navbar = () => {
             {/* CTA Button - Right side */}
             <div className="hidden md:flex items-center">
               <Link
-                href="/projects"
+                href="/contact"
                 className="px-5 py-2 text-sm font-medium text-[#C89522] border border-[#C89522] rounded-md 
                   hover:bg-[#C8952215] hover:shadow-[0_0_15px_rgba(200,149,34,0.15)] 
                   transition-all duration-300 tracking-wide"
               >
-                Projects
+                Contact us
               </Link>
             </div>
 
@@ -122,13 +122,13 @@ const Navbar = () => {
           ))}
           <div className="pt-3 px-4">
             <Link
-              href="/projects"
+              href="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="block w-full text-center px-5 py-2.5 text-sm font-medium text-[#C89522] 
                 border border-[#C89522] rounded-md hover:bg-[#C8952215] 
                 transition-all duration-300 tracking-wide"
             >
-              Projects
+              Contact us
             </Link>
           </div>
         </div>
