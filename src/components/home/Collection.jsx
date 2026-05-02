@@ -4,8 +4,12 @@ import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { useState, useEffect } from "react";
+import api from "@/lib/api";
+import Link from "next/link";
+
 const ProductCard = ({ product }) => (
-  <div className="bg-[#6B854A] rounded-[16px] p-6 flex flex-col relative group transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl h-full">
+  <Link href={`/products/${product.slug}`} className="bg-[#6B854A] rounded-[16px] p-6 flex flex-col relative group transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl h-full block">
     {/* Category Tag */}
     <div className="bg-white rounded-md px-4 py-1.5 w-max absolute top-6 left-6 z-10 shadow-sm">
       <span className="text-black text-[11px] md:text-xs font-bold">{product.category}</span>
@@ -29,50 +33,50 @@ const ProductCard = ({ product }) => (
       </div>
 
       {/* Default Small Button (Fades out) */}
-      <button className="absolute bottom-0 right-0 bg-[#0E1B0E] hover:bg-black text-white rounded-lg px-5 py-3 flex items-center justify-center gap-2.5 shadow-md shrink-0 transition-all duration-300 opacity-100 group-hover:opacity-0 group-hover:-translate-y-4 pointer-events-auto group-hover:pointer-events-none z-20">
+      <div className="absolute bottom-0 right-0 bg-[#0E1B0E] group-hover:bg-black text-white rounded-lg px-5 py-3 flex items-center justify-center gap-2.5 shadow-md shrink-0 transition-all duration-300 opacity-100 group-hover:opacity-0 group-hover:-translate-y-4 pointer-events-auto group-hover:pointer-events-none z-20">
         <span className="text-xs font-semibold tracking-wide">View</span>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-      </button>
+      </div>
 
       {/* Hover Full Button (Fades in) */}
-      <button className="absolute bottom-0 left-0 w-full bg-[#0E1B0E] hover:bg-black text-white rounded-lg py-3.5 flex items-center justify-center shadow-md transition-all duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto z-20">
+      <div className="absolute bottom-0 left-0 w-full bg-[#0E1B0E] group-hover:bg-black text-white rounded-lg py-3.5 flex items-center justify-center shadow-md transition-all duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto z-20">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-      </button>
+      </div>
     </div>
-  </div>
+  </Link>
 );
 
 const Collection = () => {
-  const products = [
-    {
-      id: 1,
-      category: "Chair",
-      image: "/pro1.svg",
-      title: "LEATHER ARMCHAIR",
-      price: "₹40,999.00 INR",
-      fullButton: true,
-    },
-    {
-      id: 2,
-      category: "Table",
-      image: "/pro2.svg",
-      title: "WOODEN CHAIR",
-      price: "₹50,999.00 INR",
-      fullButton: false,
-    },
-    {
-      id: 3,
-      category: "Office Chair",
-      image: "/pro3.svg",
-      title: "LEATHER BED",
-      price: "₹ 20,999.00 INR",
-      fullButton: false,
-    }
-  ];
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await api.get("/user/products");
+        if (response.data.success) {
+          const mappedData = response.data.data.map(p => ({
+            ...p,
+            title: p.name,
+            id: p._id
+          }));
+          setProducts(mappedData.slice(0, 6)); // Show first 6 in collection
+        }
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  if (loading) return null;
+  if (products.length === 0) return null;
 
   return (
     <section className="w-full bg-[#FFFFFF] py-12 md:py-24 px-4 md:px-12 lg:px-20 mx-auto">

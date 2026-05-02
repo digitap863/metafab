@@ -9,33 +9,34 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-const clientLogos = [
-  "/about/logo1.svg",
-  "/about/logo2.svg",
-  "/about/logo3.svg",
-  "/about/logo4.svg",
-  "/about/logo5.svg",
-  "/about/logo6.svg",
-  "/about/logo7.svg",
-  "/about/logo8.svg",
-  "/about/logo10.svg",
-  "/about/logo11.svg",
-];
-
-const clientLogo = [
-  "/about/logo11.svg",
-  "/about/logo10.svg",
-  "/about/logo8.svg",
-  "/about/logo7.svg",
-  "/about/logo6.svg",
-  "/about/logo5.svg",
-  "/about/logo4.svg",
-  "/about/logo3.svg",
-  "/about/logo2.svg",
-  "/about/logo1.svg",
-];
+import { useState, useEffect } from "react";
+import api from "@/lib/api";
 
 const Clients = () => {
+  const [logos, setLogos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchLogos = async () => {
+      try {
+        const response = await api.get("/user/logos");
+        if (response.data.success) {
+          setLogos(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching logos:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLogos();
+  }, []);
+
+  if (loading || logos.length === 0) return null;
+
+  const row1Logos = logos;
+  const row2Logos = [...logos].reverse();
   return (
     <section className="w-full bg-white pt-4 pb-10 lg:pt-24 lg:pb-24 px-4 md:px-10 lg:px-20 overflow-hidden">
       <div className="max-w-[1400px] w-full mx-auto flex flex-col items-center">
@@ -73,11 +74,11 @@ const Clients = () => {
             }}
             className="w-full flex items-center justify-center"
           >
-            {clientLogos.map((logo, index) => (
+            {row1Logos.map((logo, index) => (
               <SwiperSlide key={index} className="!flex justify-center items-center py-4">
                 <div className="relative w-[120px] h-[60px] md:w-[150px] md:h-[80px] lg:w-[180px] lg:h-[90px] transition-transform hover:scale-105 duration-300">
                   <Image 
-                    src={logo} 
+                    src={logo.logo} 
                     alt={`Client Logo ${index + 1}`} 
                     fill 
                     className="object-contain" 
@@ -116,11 +117,11 @@ const Clients = () => {
             }}
             className="w-full flex items-center justify-center"
           >
-            {clientLogo.map((logo, index) => (
+            {row2Logos.map((logo, index) => (
               <SwiperSlide key={index} className="!flex justify-center items-center py-4">
                 <div className="relative w-[120px] h-[60px] md:w-[150px] md:h-[80px] lg:w-[180px] lg:h-[90px] transition-transform hover:scale-105 duration-300">
                   <Image 
-                    src={logo} 
+                    src={logo.logo} 
                     alt={`Client Logo ${index + 1}`} 
                     fill 
                     className="object-contain" 

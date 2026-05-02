@@ -1,44 +1,40 @@
+"use client"
 import Image from "next/image";
-
-const projects = [
-  {
-    id: 1,
-    image: "/projects/pro1.svg",
-    name: "PRO NAME",
-    location: "LOCATION NAME",
-    year: "2024"
-  },
-  {
-    id: 2,
-    image: "/projects/pro2.svg",
-    name: "PRO NAME",
-    location: "LOCATION NAME",
-    year: "2024"
-  },
-  {
-    id: 3,
-    image: "/projects/pro3.svg",
-    name: "PRO NAME",
-    location: "LOCATION NAME",
-    year: "2024"
-  },
-  {
-    id: 4,
-    image: "/projects/pro4.svg",
-    name: "PRO NAME",
-    location: "LOCATION NAME",
-    year: "2024"
-  },
-  {
-    id: 5,
-    image: "/projects/pro5.svg",
-    name: "PRO NAME",
-    location: "LOCATION NAME",
-    year: "2024"
-  }
-];
+import { useState, useEffect } from "react";
+import api from "@/lib/api";
 
 const ProjectsBanner = () => {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await api.get("/user/projects");
+        if (response.data.success) {
+          // Map 'title' to 'name' and '_id' to 'id' for compatibility with existing JSX
+          const mappedData = response.data.data.map(p => ({
+            ...p,
+            name: p.title,
+            id: p._id
+          }));
+          setProjects(mappedData);
+        }
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProjects();
+  }, []);
+
+  if (loading) return null;
+  if (projects.length === 0) return (
+    <div className="w-full bg-[#A7B582] py-40 text-center text-white">
+      <h2 className="text-4xl font-bold">No Projects Found</h2>
+    </div>
+  );
   return (
 
     <section>
@@ -78,7 +74,7 @@ const ProjectsBanner = () => {
       </div>
 
       {/* Projects List Section */}
-      <div className="w-full md:flex flex-col hidden  ">
+      <div className="w-full md:flex flex-col hidden pb-20">
         {projects.map((project, index) => {
           const isFirstTwo = index < 2;
           return (
