@@ -63,6 +63,20 @@ const socialLinks = [
       </svg>
     ),
   },
+  {
+    name: "WhatsApp",
+    href: "https://wa.me/919995429554",
+    icon: (
+      <svg
+        className="w-4 h-4"
+        fill="currentColor"
+        viewBox="0 0 32 32"
+        aria-hidden="true"
+      >
+        <path d="M16.04 3C8.84 3 3 8.74 3 15.82c0 2.5.73 4.94 2.1 7.03L3 29l6.34-2.03a13.2 13.2 0 0 0 6.7 1.82h.01C23.16 28.79 29 23.05 29 15.97 29 8.89 23.16 3 16.04 3zm0 23.39c-2.03 0-4.02-.54-5.76-1.56l-.41-.24-3.76 1.2 1.23-3.64-.27-.44a10.2 10.2 0 0 1-1.57-5.47c0-5.66 4.69-10.27 10.48-10.27 5.78 0 10.48 4.61 10.48 10.27 0 5.66-4.7 10.27-10.42 10.27zm5.75-7.71c-.31-.15-1.84-.89-2.12-.99-.28-.1-.48-.15-.68.15-.2.3-.78.99-.95 1.19-.18.2-.35.22-.66.07-.31-.15-1.29-.47-2.46-1.5-.91-.8-1.52-1.79-1.7-2.09-.18-.3-.02-.46.13-.61.14-.14.31-.37.47-.55.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.62-.93-2.22-.25-.59-.5-.51-.68-.52h-.58c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.46 0 1.45 1.07 2.85 1.22 3.05.15.2 2.1 3.34 5.2 4.55.74.29 1.32.46 1.77.59.74.2 1.41.17 1.94.1.59-.09 1.84-.75 2.1-1.48.26-.73.26-1.36.18-1.48-.08-.12-.28-.2-.59-.35z" />
+      </svg>
+    ),
+  }
 ];
 
 const Footer = () => {
@@ -91,17 +105,17 @@ const Footer = () => {
       <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-10 md:pt-14 pb-0">
         <div className="max-w-7xl mx-auto">
           {/* Main footer content inside bordered box */}
-          <div 
+          <div
             className="border border-white/60 rounded-2xl p-6 md:p-10 lg:p-12"
-            data-aos="fade-up" 
+            data-aos="fade-up"
             data-aos-duration="1000"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
               {/* Left Column - Logo, Address, Contact */}
-              <div 
+              <div
                 className="space-y-4"
-                data-aos="fade-right" 
-                data-aos-delay="200" 
+                data-aos="fade-right"
+                data-aos-delay="200"
                 data-aos-duration="1000"
               >
                 {/* Footer Logo */}
@@ -143,8 +157,8 @@ const Footer = () => {
                       key={social.name}
                       href={social.href}
                       className="w-9 h-9 rounded-full border border-[#FFFFFF] flex items-center justify-center 
-                        text-[#FFFFFF] hover:bg-[#FFFFFF] hover:text-white 
-                        transition-all duration-300"
+    text-[#FFFFFF] hover:bg-[#FFFFFF] hover:text-black
+    transition-all duration-300"
                       aria-label={social.name}
                     >
                       {social.icon}
@@ -154,10 +168,10 @@ const Footer = () => {
               </div>
 
               {/* Right Column - Tagline, Newsletter, Quick Links */}
-              <div 
+              <div
                 className="space-y-8"
-                data-aos="fade-left" 
-                data-aos-delay="400" 
+                data-aos="fade-left"
+                data-aos-delay="400"
                 data-aos-duration="1000"
               >
                 {/* Tagline */}
@@ -169,34 +183,34 @@ const Footer = () => {
 
                 {/* Newsletter form */}
                 <form onSubmit={handleSubmit} className="flex flex-col lg:block gap-3 max-w-xl relative">
-  
-                {/* Input */}
-                <div className="w-full relative ">
+
+                  {/* Input */}
+                  <div className="w-full relative ">
                     <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your mail"
-                    className="w-full bg-[#2E3E24]/30 backdrop-blur-md 
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your mail"
+                      className="w-full bg-[#2E3E24]/30 backdrop-blur-md 
                         border border-white/10 
                         rounded-full px-6 py-4 
                         text-sm text-white placeholder:text-white/50
                         focus:outline-none focus:border-white/30 focus:bg-white/10
                         transition-all duration-300"
                     />
-                </div>
+                  </div>
 
-                {/* Button */}
-                <button
+                  {/* Button */}
+                  <button
                     type="submit"
                     className="bg-transparent text-white relative lg:absolute top-0 right-0 
                     px-7 py-3.5 rounded-full 
                     border border-white/40 
                     hover:bg-white/10 hover:border-white/70
                     transition-all duration-300 whitespace-nowrap mt-3 lg:mt-0 w-full lg:w-auto"
-                >
+                  >
                     Submit Now
-                </button>
+                  </button>
 
                 </form>
 
@@ -222,11 +236,11 @@ const Footer = () => {
           </div>
 
           {/* Bottom bar - outside the bordered box */}
-          <div 
+          <div
             className="flex flex-col sm:flex-row items-center justify-between pt-2 pb-5 px-2 gap-3 border-t border-[#353535] mt-10"
-            data-aos="fade-up" 
-            data-aos-delay="600" 
-            data-aos-duration="1000" 
+            data-aos="fade-up"
+            data-aos-delay="600"
+            data-aos-duration="1000"
             data-aos-offset="0"
           >
             <p className="text-[#D7D7D7] text-xs">
