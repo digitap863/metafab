@@ -13,6 +13,7 @@ const sora = Sora({
   display: "swap",
 });
 
+
 export const metadata = {
   title: "MetaFab",
   description: "MetaFab",
