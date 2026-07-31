@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import { CountUp } from "@/hooks/useCountUp";
 
 const DiamondIcon = () => (
   <svg
@@ -76,7 +77,7 @@ const DesignStats = () => {
               
               {/* Content overlaid on bottom image */}
               <div className="absolute inset-0 p-6 md:py-10 md:px-6  flex flex-col justify-between">
-                <h3 className="text-white text-5xl sm:text-6xl lg:text-[70px] font-semibold leading-none tracking-tight">250+</h3>
+                <h3 className="text-white text-5xl sm:text-6xl lg:text-[70px] font-semibold leading-none tracking-tight"><CountUp value={250} suffix="+" /></h3>
                 <div>
                   <h4 className="text-lg lg:text-xl font-semibold mb-3 uppercase tracking-wide text-white">Curated Collections</h4>
                   <p className="text-white/90 text-sm sm:text-base font-medium max-w-[90%] leading-relaxed">
@@ -90,7 +91,7 @@ const DesignStats = () => {
           {/* Middle Column (25+) - Spans 1 col */}
           <div className="lg:col-span-1 flex flex-col py-0 lg:py-36">
             <div className="bg-[#071F07] text-white p-6 md:py-10 md:px-6 rounded-2xl flex-1 flex flex-col" data-aos="fade-up" data-aos-delay="300">
-              <h3 className="text-5xl sm:text-6xl font-semibold mb-auto pt-2">25+</h3>
+              <h3 className="text-5xl sm:text-6xl font-semibold mb-auto pt-2"><CountUp value={25} suffix="+" /></h3>
               <div>
                 <h4 className="text-lg lg:text-xl font-semibold mb-3 uppercase tracking-wide">Expert Designers</h4>
                 <p className="text-white/70 text-sm leading-relaxed font-medium">Creative minds dedicated to crafting timeless and elegant spaces.</p>
@@ -101,7 +102,7 @@ const DesignStats = () => {
           {/* Right Column (500+ and 1200+) - Spans 1 col */}
           <div className="lg:col-span-1 flex flex-col gap-6">
             <div className="bg-[#6E864A] text-white p-6 md:py-10 md:px-6 rounded-2xl flex-1 flex flex-col" data-aos="fade-left" data-aos-delay="400">
-              <h3 className="text-5xl sm:text-6xl font-semibold mb-auto pt-2">500+</h3>
+              <h3 className="text-5xl sm:text-6xl font-semibold mb-auto pt-2"><CountUp value={500} suffix="+" /></h3>
               <div>
                 <h4 className="text-lg lg:text-xl font-semibold mb-3 uppercase tracking-wide">Spaces Styled</h4>
                 <p className="text-white/90 text-sm leading-relaxed font-medium">Turning ordinary places into inspiring modern environments.</p>
@@ -109,7 +110,7 @@ const DesignStats = () => {
             </div>
 
             <div className="bg-white text-[#0B120D] p-6 md:py-10 md:px-6 rounded-2xl flex-1 flex flex-col" data-aos="fade-left" data-aos-delay="500">
-              <h3 className="text-5xl sm:text-6xl font-semibold mb-auto pt-2">1200+</h3>
+              <h3 className="text-5xl sm:text-6xl font-semibold mb-auto pt-2"><CountUp value={1200} suffix="+" /></h3>
               <div>
                 <h4 className="text-lg lg:text-xl font-semibold mb-3 uppercase tracking-wide">Design Elements</h4>
                 <p className="text-[#0B120D]/80 text-sm leading-relaxed font-medium">Crafted decor pieces bringing character to every corner.</p>
@@ -158,7 +159,7 @@ const DesignStats = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30"></div>
                   
                   <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                    <h3 className="text-white text-5xl font-medium leading-none tracking-tight">250+</h3>
+                    <h3 className="text-white text-5xl font-medium leading-none tracking-tight"><CountUp value={250} suffix="+" /></h3>
                     <div>
                       <h4 className="text-lg font-semibold uppercase tracking-wide text-white mb-0">Curated Collections</h4>
                     </div>
@@ -169,7 +170,7 @@ const DesignStats = () => {
               {/* Slide 2: 25+ */}
               <SwiperSlide>
                 <div className="bg-[#071F07] text-white p-6 rounded-2xl h-[200px] flex flex-col justify-between border border-white/10">
-                  <h3 className="text-5xl font-medium pt-2">25+</h3>
+                  <h3 className="text-5xl font-medium pt-2"><CountUp value={25} suffix="+" /></h3>
                   <div>
                     <h4 className="text-lg font-semibold uppercase tracking-wide mb-0">Expert Designers</h4>
                   </div>
@@ -179,7 +180,7 @@ const DesignStats = () => {
               {/* Slide 3: 500+ */}
               <SwiperSlide>
                 <div className="bg-[#6E864A] text-white p-6 rounded-2xl h-[200px] flex flex-col justify-between border border-white/10">
-                  <h3 className="text-5xl font-medium pt-2">500+</h3>
+                  <h3 className="text-5xl font-medium pt-2"><CountUp value={500} suffix="+" /></h3>
                   <div>
                     <h4 className="text-lg font-semibold uppercase tracking-wide mb-0">Spaces Styled</h4>
                   </div>
@@ -189,7 +190,7 @@ const DesignStats = () => {
               {/* Slide 4: 1200+ */}
               <SwiperSlide>
                 <div className="bg-white text-[#0B120D] p-6 rounded-2xl h-[200px] flex flex-col justify-between border border-black/5">
-                  <h3 className="text-5xl font-medium pt-2">1200+</h3>
+                  <h3 className="text-5xl font-medium pt-2"><CountUp value={1200} suffix="+" /></h3>
                   <div>
                     <h4 className="text-lg font-semibold uppercase tracking-wide mb-0">Design Elements</h4>
                   </div>

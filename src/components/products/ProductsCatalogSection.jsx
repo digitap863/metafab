@@ -190,15 +190,15 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
   }, [selectedCategoryKey, selectedSubCategory]);
 
   return (
-    <section className="w-full bg-white py-8 lg:py-14 px-4 md:px-8 lg:px-16 font-sora">
-      <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row items-start gap-8">
+    <section className="w-full bg-white py-6 sm:py-8 lg:py-14 px-3 sm:px-6 md:px-8 lg:px-16 font-sora">
+      <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row items-start gap-6 lg:gap-8">
         
         {/* LEFT SIDEBAR: PRODUCT CATEGORIES & CUSTOMIZATION BANNER */}
-        <div className="w-full lg:w-[320px] shrink-0 flex flex-col gap-6">
+        <div className="w-full lg:w-[320px] shrink-0 flex flex-col gap-5 sm:gap-6">
           {/* Product Categories Box */}
-          <div className="w-full border border-gray-200 rounded-lg overflow-hidden shadow-sm bg-[#F9FAF6]">
+          <div className="w-full border border-gray-200 rounded-xl lg:rounded-lg overflow-hidden shadow-sm bg-[#F9FAF6]">
             {/* Header Bar */}
-            <div className="bg-[#071F07] text-white font-extrabold text-sm tracking-wider text-center py-4 px-6 uppercase border-b border-[#071F07]">
+            <div className="bg-[#071F07] text-white font-extrabold text-xs sm:text-sm tracking-wider text-center py-3.5 sm:py-4 px-4 sm:px-6 uppercase border-b border-[#071F07]">
               PRODUCT CATEGORIES
             </div>
 
@@ -215,14 +215,14 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
                     {/* Main Category Row */}
                     <button
                       onClick={() => handleCategoryClick(cat)}
-                      className={`w-full px-5 py-4 flex items-center justify-between transition-colors text-left group ${
+                      className={`w-full px-4 sm:px-5 py-3.5 sm:py-4 flex items-center justify-between transition-colors text-left group ${
                         isSelected
                           ? "bg-[#EFF3EA] text-[#071F07] font-bold"
                           : "hover:bg-[#EFF3EA]/60 text-gray-800 font-semibold"
                       }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <span className={`p-1.5 rounded-md ${isSelected ? "text-[#071F07]" : "text-gray-500 group-hover:text-[#071F07]"}`}>
+                      <div className="flex items-center gap-2.5 sm:gap-3">
+                        <span className={`p-1 sm:p-1.5 rounded-md ${isSelected ? "text-[#071F07]" : "text-gray-500 group-hover:text-[#071F07]"}`}>
                           {cat.icon}
                         </span>
                         <span className="text-xs sm:text-sm tracking-wide uppercase">
@@ -246,7 +246,7 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
 
                     {/* Subcategories List */}
                     {isExpanded && cat.subItems && cat.subItems.length > 0 && (
-                      <div className="bg-[#F3F6EE] px-6 py-3 border-t border-b border-gray-200/60 space-y-2">
+                      <div className="bg-[#F3F6EE] px-4 sm:px-6 py-2.5 sm:py-3 border-t border-b border-gray-200/60 space-y-1.5 sm:space-y-2">
                         {cat.subItems.map((sub, idx) => {
                           const isSubActive = selectedSubCategory === sub;
                           return (
@@ -256,7 +256,7 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
                                 setSelectedCategoryKey(cat.categoryKey);
                                 setSelectedSubCategory(isSubActive ? null : sub);
                               }}
-                              className={`w-full text-left text-[11px] font-bold tracking-wider uppercase transition-colors flex items-center gap-1.5 py-1 ${
+                              className={`w-full text-left text-[10px] sm:text-[11px] font-bold tracking-wider uppercase transition-colors flex items-center gap-1.5 py-1 ${
                                 isSubActive ? "text-[#071F07] underline font-extrabold" : "text-gray-600 hover:text-[#071F07]"
                               }`}
                             >
@@ -273,19 +273,19 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
             </div>
           </div>
 
-          {/* Yellow Customization Callout Card (Placed under Category Tab) */}
-          <div className="w-full bg-[#FFD900] rounded-2xl p-6 sm:p-7 flex flex-col items-start gap-4 shadow-sm">
-            <h3 className="text-black font-semibold text-base sm:text-lg tracking-wide uppercase leading-tight">
+          {/* Yellow Customization Callout Card (Placed under Category Tab - Hidden on Mobile) */}
+          <div className="hidden lg:flex w-full bg-[#FFD900] rounded-2xl p-5 sm:p-7 flex-col items-start gap-3 sm:gap-4 shadow-sm">
+            <h3 className="text-black font-semibold text-sm sm:text-lg tracking-wide uppercase leading-tight">
               LOOKING FOR<br />SOMETHING<br />CUSTOMIZED?
             </h3>
             
-            <p className="text-black/80 text-sm font-medium leading-relaxed">
+            <p className="text-black/80 text-xs sm:text-sm font-medium leading-relaxed">
               Our experts can help you create the perfect workspace.
             </p>
 
             <Link
               href="/contact"
-              className="mt-1 inline-flex items-center gap-2 border border-black text-black font-bold text-xs px-5 py-2.5 rounded-xl hover:bg-black hover:text-white transition-all duration-300 shadow-sm"
+              className="mt-1 inline-flex items-center gap-2 border border-black text-black font-bold text-xs px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl hover:bg-black hover:text-white transition-all duration-300 shadow-sm"
             >
               <span>Contact our expert</span>
               <span>›</span>
@@ -295,9 +295,31 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
 
         {/* RIGHT MAIN SHOWCASE AREA */}
         <div className="flex-1 w-full">
+          {/* Mobile Quick Category Horizontal Pills */}
+          <div className="flex lg:hidden overflow-x-auto pb-2.5 mb-4 gap-2 scrollbar-none">
+            {dynamicCategories.map((cat) => {
+              const isSelected =
+                (cat.name === "ALL PRODUCTS" && selectedCategoryKey === "ALL") ||
+                selectedCategoryKey === cat.categoryKey;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => handleCategoryClick(cat)}
+                  className={`px-3.5 py-2 rounded-full text-[11px] font-bold whitespace-nowrap uppercase transition-all shrink-0 flex items-center gap-1.5 shadow-sm ${
+                    isSelected
+                      ? "bg-[#071F07] text-white"
+                      : "bg-[#F9FAF6] border border-gray-200 text-gray-700 hover:bg-[#EFF3EA]"
+                  }`}
+                >
+                  <span>{cat.name}</span>
+                </button>
+              );
+            })}
+          </div>
+
           {/* Header Row */}
-          <div className="flex items-center justify-between pb-4 mb-6 border-b border-gray-200">
-            <h2 className="text-[#071F07] font-extrabold text-xl sm:text-2xl tracking-tight uppercase">
+          <div className="flex items-center justify-between pb-3 sm:pb-4 mb-4 sm:mb-6 border-b border-gray-200">
+            <h2 className="text-[#071F07] font-extrabold text-lg sm:text-2xl tracking-tight uppercase">
               {sectionTitle}
             </h2>
 
@@ -306,27 +328,27 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
                 setSelectedCategoryKey("ALL");
                 setSelectedSubCategory(null);
               }}
-              className="text-gray-600 hover:text-[#071F07] text-xs font-bold uppercase tracking-wider flex items-center gap-1 transition-colors"
+              className="text-gray-600 hover:text-[#071F07] text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center gap-1 transition-colors"
             >
               <span>View all</span>
               <span>→</span>
             </button>
           </div>
 
-          {/* Product Cards Grid */}
+          {/* Product Cards Grid (2-column on Mobile, 2 on Small Tablet, 3-4 on Desktop) */}
           {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
               {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-                <div key={n} className="border border-gray-200 rounded-xl bg-white p-4 h-64 animate-pulse flex flex-col justify-between">
-                  <div className="w-full h-40 bg-gray-100 rounded-lg" />
+                <div key={n} className="border border-gray-200 rounded-xl bg-white p-3 sm:p-4 h-52 sm:h-64 animate-pulse flex flex-col justify-between">
+                  <div className="w-full h-32 sm:h-40 bg-gray-100 rounded-lg" />
                   <div className="w-2/3 h-4 bg-gray-100 rounded mx-auto" />
                 </div>
               ))}
             </div>
           ) : filteredProducts.length === 0 ? (
-            <div className="bg-[#F9FAF6] border border-dashed border-gray-300 rounded-2xl p-12 text-center my-4">
-              <div className="text-4xl mb-3 text-[#071F07]">🛋️</div>
-              <h4 className="text-lg font-bold text-gray-800 uppercase mb-1">No models available</h4>
+            <div className="bg-[#F9FAF6] border border-dashed border-gray-300 rounded-2xl p-8 sm:p-12 text-center my-4">
+              <div className="text-3xl sm:text-4xl mb-3 text-[#071F07]">🛋️</div>
+              <h4 className="text-base sm:text-lg font-bold text-gray-800 uppercase mb-1">No models available</h4>
               <p className="text-gray-500 text-xs max-w-sm mx-auto mb-4">
                 No products found in the admin model for this category/subcategory. Add products from the Admin Panel to display them here.
               </p>
@@ -335,13 +357,13 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
                   setSelectedCategoryKey("ALL");
                   setSelectedSubCategory(null);
                 }}
-                className="bg-[#071F07] text-white px-5 py-2 rounded-lg text-xs font-bold uppercase hover:bg-black transition-colors"
+                className="bg-[#071F07] text-white px-4 sm:px-5 py-2 rounded-lg text-xs font-bold uppercase hover:bg-black transition-colors"
               >
                 Show All Products
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
               {filteredProducts.map((product) => (
                 <Link
                   key={product._id || product.slug}
@@ -349,7 +371,7 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
                   className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#071F07]/40 transition-all duration-300 group flex flex-col justify-between"
                 >
                   {/* Top Image Box */}
-                  <div className="h-48 sm:h-52 w-full bg-[#F3F5EF] p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#EDF0E8] transition-colors">
+                  <div className="h-36 sm:h-48 md:h-52 w-full bg-[#F3F5EF] p-2.5 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#EDF0E8] transition-colors">
                     <img
                       src={product.image}
                       alt={product.name}
@@ -358,12 +380,12 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
                   </div>
 
                   {/* Bottom Model Name Container */}
-                  <div className="bg-white p-4 text-center border-t border-gray-100 flex flex-col items-center justify-center min-h-[68px]">
-                    <h3 className="text-[#071F07] font-extrabold text-xs sm:text-sm uppercase tracking-wide leading-snug line-clamp-2 group-hover:text-[#6E864A] transition-colors">
+                  <div className="bg-white p-2.5 sm:p-4 text-center border-t border-gray-100 flex flex-col items-center justify-center min-h-[56px] sm:min-h-[68px]">
+                    <h3 className="text-[#071F07] font-extrabold text-[11px] sm:text-xs md:text-sm uppercase tracking-wide leading-snug line-clamp-2 group-hover:text-[#6E864A] transition-colors">
                       {product.name}
                     </h3>
                     {product.subCategory && (
-                      <span className="text-[10px] font-bold text-[#6E864A] uppercase tracking-wider mt-0.5">
+                      <span className="text-[9px] sm:text-[10px] font-bold text-[#6E864A] uppercase tracking-wider mt-0.5 line-clamp-1">
                         {product.subCategory}
                       </span>
                     )}

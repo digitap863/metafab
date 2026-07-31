@@ -71,42 +71,42 @@ const ProductsBanner = ({ product }) => {
   const productName = (product.name || "").toUpperCase();
 
   return (
-    <section className="w-full bg-white font-sora pt-28 md:pt-36 pb-20 px-4 md:px-10 lg:px-20 text-black">
+    <section className="w-full bg-white font-sora pt-24 sm:pt-28 md:pt-36 pb-12 sm:pb-20 px-3 sm:px-6 md:px-10 lg:px-20 text-black">
       <div className="max-w-[1360px] mx-auto">
 
         {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-1.5 text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-8 overflow-x-auto whitespace-nowrap">
-          <Link href="/" className="hover:text-black transition-colors">
+        <nav className="flex items-center gap-1.5 text-[10px] sm:text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-6 sm:mb-8 overflow-x-auto whitespace-nowrap pb-1 scrollbar-none">
+          <Link href="/" className="hover:text-black transition-colors shrink-0">
             HOME
           </Link>
           <span>&gt;</span>
-          <Link href="/products" className="hover:text-black transition-colors">
+          <Link href="/products" className="hover:text-black transition-colors shrink-0">
             PRODUCTS
           </Link>
           {categoryName && (
             <>
               <span>&gt;</span>
-              <span className="hover:text-black transition-colors">{categoryName}</span>
+              <span className="hover:text-black transition-colors shrink-0">{categoryName}</span>
             </>
           )}
           {subCatName && (
             <>
               <span>&gt;</span>
-              <span className="text-gray-700 font-bold">{subCatName}</span>
+              <span className="text-gray-700 font-bold shrink-0">{subCatName}</span>
             </>
           )}
         </nav>
 
         {/* 2-Column Product Detail Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
 
           {/* LEFT COLUMN: Outer Rounded Container for Image + Thumbnails */}
-          <div className="lg:col-span-6 flex flex-col gap-8">
+          <div className="lg:col-span-6 flex flex-col gap-6 sm:gap-8">
             {/* Outer Box containing Main Cutout Image & Thumbnails */}
-            <div className="border border-gray-300 rounded-3xl p-6 sm:p-8 bg-white shadow-sm flex flex-col gap-6">
+            <div className="border border-gray-300 rounded-2xl sm:rounded-3xl p-4 sm:p-8 bg-white shadow-sm flex flex-col gap-4 sm:gap-6">
 
               {/* Main Large Product Cutout Photo */}
-              <div className="h-[360px] sm:h-[460px] w-full flex items-center justify-center relative overflow-hidden bg-white">
+              <div className="h-[260px] sm:h-[380px] md:h-[460px] w-full flex items-center justify-center relative overflow-hidden bg-white">
                 <img
                   src={selectedImage || product.image}
                   alt={product.name || "Product Image"}
@@ -116,12 +116,12 @@ const ProductsBanner = ({ product }) => {
 
               {/* Thumbnails Row */}
               {allImages.length > 1 && (
-                <div className="grid grid-cols-4 gap-3 sm:gap-4 pt-2 border-t border-gray-100">
+                <div className="grid grid-cols-4 sm:grid-cols-5 gap-2 sm:gap-4 pt-2 border-t border-gray-100">
                   {allImages.map((img, idx) => (
                     <button
                       key={idx}
                       onClick={() => setSelectedImage(img)}
-                      className={`aspect-square border rounded-md p-1.5 bg-white flex items-center justify-center transition-all ${selectedImage === img
+                      className={`aspect-square border rounded-lg p-1 sm:p-1.5 bg-white flex items-center justify-center transition-all ${selectedImage === img
                           ? "border-[#071F07] ring-1 ring-[#071F07] shadow-sm"
                           : "border-gray-300 hover:border-gray-500"
                         }`}
@@ -139,8 +139,8 @@ const ProductsBanner = ({ product }) => {
 
             {/* Product Description Section strictly from DB */}
             {product.description && (
-              <div className="pt-2">
-                <h2 className="text-2xl font-semibold text-[#071F07] uppercase tracking-tight mb-3">
+              <div className="pt-1 sm:pt-2">
+                <h2 className="text-xl sm:text-2xl font-semibold text-[#071F07] uppercase tracking-tight mb-2.5">
                   PRODUCT DESCRIPTION
                 </h2>
                 <p className="text-gray-600 text-xs sm:text-sm leading-relaxed font-medium whitespace-pre-line">
@@ -151,18 +151,18 @@ const ProductsBanner = ({ product }) => {
           </div>
 
           {/* RIGHT COLUMN: Category Badge, Title, Specs & Details strictly from DB */}
-          <div className="lg:col-span-6 flex flex-col gap-5 pt-1">
+          <div className="lg:col-span-6 flex flex-col gap-4 sm:gap-5 pt-1">
 
             {/* Category / Subcategory Badge */}
             {(product.subCategory || product.category) && (
-              <div className="inline-block px-4 py-1.5 bg-[#6E864A] text-black text-xs font-semibold rounded-md uppercase tracking-wider w-fit">
+              <div className="inline-block px-3.5 sm:px-4 py-1 sm:py-1.5 bg-[#6E864A] text-black text-[11px] sm:text-xs font-semibold rounded-md uppercase tracking-wider w-fit">
                 {product.subCategory || product.category}
               </div>
             )}
 
             {/* Product Name */}
             {product.name && (
-              <h1 className="text-2xl sm:text-4xl font-semibold text-[#6E864A] uppercase tracking-tight leading-tight">
+              <h1 className="text-xl sm:text-3xl md:text-4xl font-semibold text-[#6E864A] uppercase tracking-tight leading-tight">
                 {productName}
               </h1>
             )}
@@ -176,7 +176,7 @@ const ProductsBanner = ({ product }) => {
 
             {/* Rating & Model Number Row */}
             {(product.rating || product.modelNumber) && (
-              <div className="flex items-center justify-between pt-2 pb-3 border-b border-gray-300 text-xs sm:text-sm font-bold text-gray-800">
+              <div className="flex items-center justify-between pt-1 sm:pt-2 pb-2.5 sm:pb-3 border-b border-gray-300 text-xs sm:text-sm font-bold text-gray-800">
                 {product.rating ? (
                   <div className="flex items-center gap-1.5">
                     <span className="text-amber-500">⭐</span>
@@ -195,17 +195,17 @@ const ProductsBanner = ({ product }) => {
 
             {/* Price Display */}
             {product.price && (
-              <div className="text-2xl sm:text-3xl font-semibold text-[#071F07] my-1">
+              <div className="text-xl sm:text-3xl font-semibold text-[#071F07] my-0.5 sm:my-1">
                 {product.price}
               </div>
             )}
 
             {/* Key Feature Badges Grid */}
             {featuresList.length > 0 && (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 py-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 py-1 sm:py-2">
                 {featuresList.map((feat, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6E864A" strokeWidth="2.5" className="shrink-0">
+                  <div key={idx} className="flex items-center gap-1.5 sm:gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6E864A" strokeWidth="2.5" className="shrink-0">
                       <rect x="3" y="3" width="7" height="7" />
                       <rect x="14" y="3" width="7" height="7" />
                       <rect x="14" y="14" width="7" height="7" />
@@ -221,11 +221,11 @@ const ProductsBanner = ({ product }) => {
 
             {/* Available Finishes */}
             {finishesList.length > 0 && (
-              <div className="space-y-3 pt-3">
+              <div className="space-y-2.5 sm:space-y-3 pt-2 sm:pt-3">
                 <h3 className="text-xs sm:text-sm font-semibold text-[#071F07] uppercase tracking-wider">
                   AVAILABLE FINISHES
                 </h3>
-                <div className="flex items-center gap-3 flex-wrap">
+                <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap">
                   {finishesList.map((color, idx) => {
                     const hexCode =
                       color.startsWith("#") ||
@@ -241,7 +241,7 @@ const ProductsBanner = ({ product }) => {
                         <button
                           type="button"
                           onClick={() => handleCopyColor(color, idx)}
-                          className="w-10 h-10 rounded-lg border border-gray-300 shadow-sm cursor-pointer hover:scale-110 transition-transform focus:outline-none ring-offset-2 focus:ring-2 focus:ring-[#071F07] block relative"
+                          className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg border border-gray-300 shadow-sm cursor-pointer hover:scale-110 transition-transform focus:outline-none ring-offset-2 focus:ring-2 focus:ring-[#071F07] block relative"
                           style={{ backgroundColor: hexCode }}
                           aria-label={`Copy color code ${hexCode}`}
                         />

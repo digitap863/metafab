@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { CountUp } from "@/hooks/useCountUp";
 
 const DiamondIcon = () => (
   <svg
@@ -91,7 +92,7 @@ const Trust = () => {
               />
               {/* Overlay text in case circlee.svg is just the arrow graphics */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center mt-1 md:mt-2">
-                <span className="text-[#071F07] text-2xl sm:text-3xl lg:text-4xl font-bold leading-none mb-1">25+</span>
+                <span className="text-[#071F07] text-2xl sm:text-3xl lg:text-4xl font-bold leading-none mb-1"><CountUp value={25} suffix="+" /></span>
                 <span className="text-[#071F07] text-[11px] sm:text-sm lg:text-[15px] font-bold uppercase tracking-widest">EXPERTS</span>
               </div>
             </div>

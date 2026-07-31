@@ -63,20 +63,20 @@ const featureCards = [
 
 const ProductsCustomizationBanner = () => {
   return (
-    <section className="w-full bg-white py-6 lg:py-10 px-4 md:px-8 lg:px-16 font-sora">
+    <section className="w-full bg-white py-4 sm:py-6 lg:py-10 px-3 sm:px-6 md:px-8 lg:px-16 font-sora">
       <div className="max-w-[1440px] mx-auto">
         {/* 4 Horizontal Olive Feature Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {featureCards.map((card) => (
             <div
               key={card.id}
-              className="bg-[#6B854A] text-white rounded-2xl p-6 sm:p-7 flex items-center gap-5 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-[#6B854A] text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-7 flex items-center gap-3.5 sm:gap-5 shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="shrink-0 p-2.5 bg-white/10 rounded-xl">
+              <div className="shrink-0 p-2 sm:p-2.5 bg-white/10 rounded-xl">
                 {card.icon}
               </div>
 
-              <h4 className="font-extrabold text-xs sm:text-sm tracking-wider uppercase leading-snug whitespace-pre-line">
+              <h4 className="font-extrabold text-[11px] sm:text-xs md:text-sm tracking-wider uppercase leading-snug whitespace-pre-line">
                 {card.title}
               </h4>
             </div>
