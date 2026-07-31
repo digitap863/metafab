@@ -8,9 +8,10 @@ export const GET = async () => {
     const products = await Product.find().sort({ createdAt: -1 });
     return NextResponse.json({ success: true, data: products });
   } catch (error) {
+    console.error("Error in GET /api/user/products:", error.message);
     return NextResponse.json(
-      { success: false, message: "Error fetching products: " + error.message },
-      { status: 500 }
+      { success: false, data: [], message: error.message },
+      { status: 200 }
     );
   }
 };

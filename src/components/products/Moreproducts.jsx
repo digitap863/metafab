@@ -8,40 +8,54 @@ import api from "@/lib/api";
 import Link from "next/link";
 
 const ProductCard = ({ product }) => (
-  <Link href={`/products/${product.slug}`} className="bg-[#6B854A] rounded-[16px] p-6 flex flex-col relative group transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl h-full block">
-    {/* Category Tag */}
-    <div className="bg-white rounded-md px-4 py-1.5 w-max absolute top-6 left-6 z-10 shadow-sm">
-      <span className="text-black text-[11px] md:text-xs font-bold">{product.category}</span>
+  <Link
+    href={`/products/${product.slug}`}
+    className="bg-[#9AA978] rounded-2xl p-6 flex flex-col justify-between h-[400px] sm:h-[440px] relative shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 group border border-[#9AA978] block font-sora overflow-hidden"
+  >
+    {/* Top Left White Category Tag */}
+    <div className="bg-white rounded-md px-3.5 py-1 w-max absolute top-6 left-6 z-10 shadow-sm">
+      <span className="text-black text-[11px] sm:text-xs font-semibold uppercase tracking-wide">
+        {product.category || product.subCategory || "Furniture"}
+      </span>
     </div>
 
-    {/* Image Container */}
-    <div className="h-64 sm:h-72 lg:h-80 w-full flex items-center justify-center mt-10 mb-6">
-      <img 
-        src={product.image} 
-        alt={product.title} 
-        className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" 
+    {/* Center Product Image */}
+    <div className="h-52 sm:h-60 w-full flex items-center justify-center my-auto pt-6 pb-2 relative overflow-hidden">
+      <img
+        src={product.image}
+        alt={product.name || product.title}
+        className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
       />
     </div>
 
-    {/* Product Info & Button */}
-    <div className="mt-auto relative w-full h-[52px]">
-      <div className="absolute left-0 bottom-0 flex flex-col pr-24 z-10 transition-transform duration-300 group-hover:-translate-y-[60px]">
-        <h3 className="text-black font-bold text-lg md:text-xl uppercase tracking-wide leading-tight line-clamp-2">{product.title}</h3>
-        <p className="text-black/80 text-xs md:text-[13px] font-semibold mt-1">{product.price}</p>
+    {/* Bottom Details & Animated Action Area */}
+    <div className="mt-auto relative w-full h-[64px] flex items-end">
+      
+      {/* Product Title & Price (Moves UPWARDS on hover) */}
+      <div className="flex flex-col pr-2 z-10 transition-transform duration-500 ease-out group-hover:-translate-y-[54px]">
+        <h3 className="text-[#071F07] font-semibold text-sm sm:text-base uppercase tracking-wide leading-tight line-clamp-1">
+          {product.name || product.title}
+        </h3>
+        <p className="text-[#071F07]/90 text-xs sm:text-sm font-bold mt-1">
+          {product.price}
+        </p>
       </div>
 
-      <div className="absolute bottom-0 right-0 bg-[#0E1B0E] group-hover:bg-black text-white rounded-lg px-5 py-3 flex items-center justify-center gap-2.5 shadow-md shrink-0 transition-all duration-300 opacity-100 group-hover:opacity-0 group-hover:-translate-y-4 pointer-events-auto group-hover:pointer-events-none z-20">
-        <span className="text-xs font-semibold tracking-wide">View</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Initial View: Small Arrow Button on Right (No text) */}
+      <div className="absolute right-0 bottom-0 bg-[#071F07] text-white rounded-xl p-3 flex items-center justify-center shadow-md z-20 transition-all duration-500 ease-out opacity-100 group-hover:opacity-0 group-hover:pointer-events-none group-hover:scale-95">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <path d="M9 18l6-6-6-6" />
         </svg>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full bg-[#0E1B0E] group-hover:bg-black text-white rounded-lg py-3.5 flex items-center justify-center shadow-md transition-all duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto z-20">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Hover View: Full Width Button on Bottom (Includes View text + Arrow) */}
+      <div className="absolute left-0 bottom-0 w-full bg-[#071F07] group-hover:bg-black text-white rounded-xl py-3.5 flex items-center justify-center gap-2 shadow-lg z-20 transition-all duration-500 ease-out opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+        <span className="text-xs font-semibold uppercase tracking-wider">View</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <path d="M9 18l6-6-6-6" />
         </svg>
       </div>
+
     </div>
   </Link>
 );
@@ -54,13 +68,13 @@ const Moreproducts = ({ currentSlug }) => {
     const fetchProducts = async () => {
       try {
         const response = await api.get("/user/products");
-        if (response.data.success) {
+        if (response.data.success && Array.isArray(response.data.data)) {
           const mappedData = response.data.data
-            .filter(p => p.slug !== currentSlug)
-            .map(p => ({
+            .filter((p) => p.slug !== currentSlug)
+            .map((p) => ({
               ...p,
               title: p.name,
-              id: p._id
+              id: p._id || p.slug,
             }));
           setProducts(mappedData.slice(0, 3));
         }
@@ -76,31 +90,36 @@ const Moreproducts = ({ currentSlug }) => {
   if (loading || products.length === 0) return null;
 
   return (
-    <section className="w-full bg-[#FFFFFF] pt-2 pb-12 md:pt-2 md:pb-24 px-4 md:px-12 lg:px-20 mx-auto">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="flex flex-col items-center justify-center mb-12 md:mb-16" data-aos="fade-up" data-aos-delay="0">
-          <h2 className="text-[#071F07] text-3xl md:text-5xl lg:text-6xl font-semibold uppercase tracking-tight text-center" data-aos="fade-up" data-aos-delay="200">
-             More <span className='text-[#071F07]/90'> Products</span> 
+    <section className="w-full bg-white py-12 md:py-20 px-4 md:px-10 lg:px-20 mx-auto font-sora">
+      <div className="max-w-[1360px] mx-auto">
+        
+        {/* Title Header: MORE PRODUCTS */}
+        <div className="mb-10 md:mb-14">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold uppercase tracking-tight text-left">
+            <span className="text-[#071F07]">MORE </span>
+            <span className="text-[#6E864A]">PRODUCTS</span>
           </h2>
         </div>
 
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {products.map((product, index) => (
-            <div key={product.id} data-aos="fade-up" data-aos-delay={index * 150}>
+        {/* Desktop 3-Card Grid */}
+        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-10">
+          {products.map((product) => (
+            <div key={product.id}>
               <ProductCard product={product} />
             </div>
           ))}
         </div>
 
-        <div className="block md:hidden w-full overflow-visible">
+        {/* Mobile Swiper Layout */}
+        <div className="block md:hidden w-full overflow-visible mb-8">
           <Swiper
             modules={[Autoplay]}
-            spaceBetween={12}
+            spaceBetween={14}
             slidesPerView={1.15}
             centeredSlides={true}
             loop={products.length > 1}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            className="w-full pb-8 !overflow-visible"
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            className="w-full pb-6 !overflow-visible"
           >
             {products.map((product, index) => (
               <SwiperSlide key={`${product.id}-${index}`}>
@@ -109,6 +128,18 @@ const Moreproducts = ({ currentSlug }) => {
             ))}
           </Swiper>
         </div>
+
+        {/* Bottom Right CTA: View More > */}
+        <div className="flex justify-end pt-2">
+          <Link
+            href="/products"
+            className="bg-[#071F07] hover:bg-black text-white font-semibold text-xs sm:text-sm px-7 py-3.5 rounded-xl inline-flex items-center gap-1.5 transition-all shadow-md"
+          >
+            <span>View More</span>
+            <span>›</span>
+          </Link>
+        </div>
+
       </div>
     </section>
   );

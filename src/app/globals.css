@@ -8,26 +8,25 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sora);
   --font-heading: var(--font-sora);
+  --font-sora: var(--font-sora);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .font-sora {
+    font-family: var(--font-sora), sans-serif;
   }
 }
 
-/* Body uses Inter */
+/* Primary font is Sora */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-sora), sans-serif;
 }
 
-/* All headings use Sora */
-h1, h2, h3, h4, h5, h6 {
+/* Headings, buttons, and inputs use Sora */
+h1, h2, h3, h4, h5, h6, button, input, select, textarea, a, p, span, div {
   font-family: var(--font-sora), sans-serif;
 }

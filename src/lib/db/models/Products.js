@@ -1,40 +1,79 @@
-import mongoose, { Schema, model, models } from "mongoose";
+import mongoose from "mongoose";
+
+const { Schema, model, models } = mongoose;
 
 const ProductsSchema = new Schema(
-    {
-        slug: {
-            type: String,
-            required: true,
-            unique: true,
-        },
-        image: {
-            type: String,
-            required: true,
-        },
-        name: {
-            type: String,
-            required: true,
-        },
-        price: {
-            type: String,
-            required: true,
-        },
-        description: {
-            type: String,
-            required: true,
-        },
-        category: {
-            type: String,
-            required: true,
-        },
-        details: {
-            type: String,
-            required: true,
-        },
+  {
+    name: {
+      type: String,
+      required: true,
     },
-    {
-        timestamps: true,
-    }
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    modelNumber: {
+      type: String,
+      default: "",
+    },
+    category: {
+      type: String,
+      required: true,
+    },
+    subCategory: {
+      type: String,
+      default: "",
+    },
+    price: {
+      type: String,
+      required: true,
+    },
+    rating: {
+      type: String,
+      default: "",
+    },
+    subtitle: {
+      type: String,
+      default: "",
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    details: {
+      type: String,
+      required: true,
+    },
+    features: {
+      type: [String],
+      default: [],
+    },
+    finishes: {
+      type: [String],
+      default: [],
+    },
+    brochure: {
+      type: String,
+      default: "",
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    gallery: {
+      type: [String],
+      default: [],
+    },
+  },
+  {
+    timestamps: true,
+    strict: true,
+  }
 );
 
-export default models.Product || model("Product", ProductsSchema);
+if (models && models.Product) {
+  delete models.Product;
+}
+
+export default models?.Product || model("Product", ProductsSchema);

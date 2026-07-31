@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductsBanner from '@/components/products/banner';
 import ProductsMore from '@/components/products/Moreproducts';
+import ConsultationBanner from '@/components/products/ConsultationBanner';
 import api from '@/lib/api';
 import { useParams } from 'next/navigation';
 
@@ -43,9 +44,10 @@ function ProductPage() {
   );
 
   return (
-    <div className='w-full'>
+    <div className='w-full bg-white'>
       <ProductsBanner product={product} />
       <ProductsMore currentSlug={slug} />
+      <ConsultationBanner />
     </div>
   );
 }
