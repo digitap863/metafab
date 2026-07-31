@@ -24,7 +24,7 @@ const timelineData = [
   { year: "2014", title: "HUMBLE\nBEGINNINGS" },
   { year: "2017", title: "BRAND\nEXPANSION" },
   { year: "2020", title: "DIGITAL\nTRANSITION" },
-  { year: "2025", title: "DESIGN LEGACY" },
+  { year: "2025", title: "DESIGN\nLEGACY" },
 ];
 
 const Story = () => {
