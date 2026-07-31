@@ -40,7 +40,7 @@ function Banner() {
 
           {/* Left - GET IN TOUCH */}
           <div
-            className="bg-[#0F1D0C] text-white rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[520px]"
+            className="bg-[#0F1D0C] text-white rounded-2xl py-8 md:px-10 md:py-16 flex flex-col justify-between min-h-[520px]"
             data-aos="fade-right"
             data-aos-duration="800"
           >

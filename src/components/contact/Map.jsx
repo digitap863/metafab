@@ -5,7 +5,7 @@ function Map() {
   return (
     <div className="w-full bg-[#FFFFFF] px-4 md:px-10 lg:px-20 pt-10 pb-10 lg:pt-12 lg:pb-20">
       <div className="max-w-[1400px] w-full mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
           {/* Left - Map */}
           <div

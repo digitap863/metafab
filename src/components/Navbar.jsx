@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <nav className="absolute top-0 left-0 w-full z-50" data-aos="fade-down" data-aos-duration="1000">
       {/* Main navbar container with semi-transparent dark green bg + blur */}
-      <div className="bg-[#071F0780] backdrop-blur-md border-b border-[#C8952230]">
+      <div className="bg-[#0F1D0C] backdrop-blur-md border-b border-[#C8952230]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-[72px]">
             {/* Logo */}
