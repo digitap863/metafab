@@ -10,13 +10,13 @@ import Clients from '@/components/about/Clients'
 function page() {
   return (
     <div className='w-full'>
-        <AboutBanner />
-        <DesignStats />
-        <Story /> 
-        <Clients/>
-        <Trust />
-        <Award />
-        <Faq />
+      <AboutBanner />
+      <DesignStats />
+      <Story />
+      <Clients />
+      <Trust />
+      <Award />
+      <Faq />
     </div>
   )
 }

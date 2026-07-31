@@ -66,7 +66,7 @@ function Banner() {
       {/* Services List Section */}
       <div className="max-w-[1400px] w-full mx-auto flex flex-col gap-8 md:gap-10 mt-7 md:mt-24">
         {services.map((service, index) => {
-          const isEven = index % 2 !== 0; 
+          const isEven = index % 2 !== 0;
           return (
             <div
               key={service._id}

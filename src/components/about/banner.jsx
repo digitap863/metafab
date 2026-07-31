@@ -105,14 +105,61 @@ const AboutBanner = () => {
         </div>
       </div>
 
-      {/* here i want a image in w-full h-full */}
+      {/* Full-width hero image with overlaid text — matches homepage style */}
       <div
-        className="w-full md:h-[100vh] h-[40vh] relative"
+        className="w-full h-[80vh] sm:h-[85vh] md:h-[100vh] relative overflow-hidden"
         data-aos="fade-in"
         data-aos-duration="1200"
         data-aos-delay="300"
       >
-        <Image src="/about/banner.svg" alt="Image" fill className="object-cover" />
+        {/* Background image */}
+        <Image
+          src="/about/banner.svg"
+          alt="Designs Your Thoughts"
+          fill
+          className="object-cover object-center"
+        />
+
+        {/* Subtle dark overlay so text pops */}
+        <div className="absolute inset-0 bg-black/30" />
+
+        {/* Inner layout: left headline + right services list */}
+        <div className="absolute inset-0 px-4 sm:px-8 md:px-12 lg:px-20 flex items-start md:items-center justify-between gap-6 pt-10 md:pt-0">
+
+          {/* Left: Big headline — responsive at all breakpoints */}
+          <h2
+            className="text-[10vw] sm:text-[12vw] md:text-[10vw] lg:text-[9vw] xl:text-[8vw] 2xl:text-[7vw] font-bold leading-[0.9] tracking-tighter uppercase text-white drop-shadow-lg"
+            data-aos="fade-up"
+            data-aos-duration="900"
+            data-aos-delay="500"
+          >
+            <span className="block">DESIGNS</span>
+            <span className="block">YOUR</span>
+            <span className="block">THOUGHTS</span>
+          </h2>
+
+          {/* Right: Decorative line + bullet services list — exactly like homepage hero */}
+          <div
+            className="hidden lg:flex items-stretch gap-3 self-center h-[200px] shrink-0"
+            data-aos="fade-left"
+            data-aos-duration="900"
+            data-aos-delay="600"
+          >
+            <DecorativeLine />
+            <div className="flex flex-col justify-center space-y-4">
+              {servicesList.map((service) => (
+                <p
+                  key={service}
+                  className="text-white text-sm lg:text-[15px] font-semibold tracking-wide uppercase flex items-center gap-2"
+                >
+                  <span className="text-white text-lg leading-none">•</span>
+                  {service}
+                </p>
+              ))}
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

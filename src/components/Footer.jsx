@@ -132,13 +132,13 @@ const Footer = () => {
                 {/* Address */}
                 <div className="space-y-1">
                   <p className="text-[#FFFFFF] text-sm leading-relaxed">
-                    Admin Office: TR/39/1413
+                    E1, Rathna Gardens, 4th Floor,
                   </p>
                   <p className="text-[#FFFFFF] text-sm leading-relaxed">
-                    Aravindhakshan Lane,
+                    S Janatha Rd, Palarivattom,
                   </p>
                   <p className="text-[#FFFFFF] text-sm leading-relaxed">
-                    Opp. International Stadium, Kaloor,Kochi-682025
+                    Kochi, Kerala 682025
                   </p>
                 </div>
 
@@ -147,7 +147,7 @@ const Footer = () => {
 
                 {/* Phone */}
                 <p className="text-[#FFFFFF] text-sm font-medium tracking-wide">
-                  CALL US: 9995429554, 0484-2330678
+                  CALL US: 9995429554, 9995429553, 0484-2330678
                 </p>
 
                 {/* Social Icons */}

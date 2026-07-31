@@ -12,6 +12,11 @@ import "swiper/css/autoplay";
 import { useState, useEffect } from "react";
 import api from "@/lib/api";
 
+const staticLogos = [
+  { logo: "/about/kitex.jpg", name: "Kitex" },
+  { logo: "/about/metafab_logo.jpg", name: "Metafab" },
+];
+
 const Clients = () => {
   const [logos, setLogos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -33,10 +38,16 @@ const Clients = () => {
     fetchLogos();
   }, []);
 
-  if (loading || logos.length === 0) return null;
+  if (loading) return null;
 
-  const row1Logos = logos;
-  const row2Logos = [...logos].reverse();
+  // Merge static logos with API logos (static always first)
+  const allLogos = [
+    ...staticLogos,
+    ...logos,
+  ];
+
+  const row1Logos = allLogos;
+  const row2Logos = [...allLogos].reverse();
   return (
     <section className="w-full bg-white pt-4 pb-10 lg:pt-24 lg:pb-24 px-4 md:px-10 lg:px-20 overflow-hidden">
       <div className="max-w-[1400px] w-full mx-auto flex flex-col items-center">
@@ -76,12 +87,11 @@ const Clients = () => {
           >
             {row1Logos.map((logo, index) => (
               <SwiperSlide key={index} className="!flex justify-center items-center py-4">
-                <div className="relative w-[120px] h-[60px] md:w-[150px] md:h-[80px] lg:w-[180px] lg:h-[90px] transition-transform hover:scale-105 duration-300">
-                  <Image 
-                    src={logo.logo} 
-                    alt={`Client Logo ${index + 1}`} 
-                    fill 
-                    className="object-contain" 
+                <div className="flex items-center justify-center w-[110px] md:w-[140px] lg:w-[160px] transition-transform hover:scale-105 duration-300">
+                  <img
+                    src={logo.logo}
+                    alt={logo.name || `Client Logo ${index + 1}`}
+                    className="max-w-full max-h-[70px] md:max-h-[80px] object-contain"
                   />
                 </div>
               </SwiperSlide>
@@ -119,12 +129,11 @@ const Clients = () => {
           >
             {row2Logos.map((logo, index) => (
               <SwiperSlide key={index} className="!flex justify-center items-center py-4">
-                <div className="relative w-[120px] h-[60px] md:w-[150px] md:h-[80px] lg:w-[180px] lg:h-[90px] transition-transform hover:scale-105 duration-300">
-                  <Image 
-                    src={logo.logo} 
-                    alt={`Client Logo ${index + 1}`} 
-                    fill 
-                    className="object-contain" 
+                <div className="flex items-center justify-center w-[110px] md:w-[140px] lg:w-[160px] transition-transform hover:scale-105 duration-300">
+                  <img
+                    src={logo.logo}
+                    alt={logo.name || `Client Logo ${index + 1}`}
+                    className="max-w-full max-h-[70px] md:max-h-[80px] object-contain"
                   />
                 </div>
               </SwiperSlide>

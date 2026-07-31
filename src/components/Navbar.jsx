@@ -69,12 +69,27 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* CTA Button - Right side */}
-            <div className="hidden md:flex items-center">
+            {/* CTA Buttons - Right side */}
+            <div className="hidden md:flex items-center gap-3">
+              {/* Download Brochure */}
+              <a
+                href="/brochure/Metafab_E_Brochure_compressed (1).pdf"
+                download="Metafab_Brochure.pdf"
+                className="flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-md transition-all duration-300 tracking-wide border border-[#9AA978] text-[#9AA978] hover:bg-[#9AA97815] hover:shadow-[0_0_15px_rgba(154,169,120,0.15)]"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Brochure
+              </a>
+
+              {/* Contact us */}
               <Link
                 href="/contact"
                 onClick={() => setActiveLink("Contact us")}
-                className={`px-5 py-2 text-sm font-medium rounded-md transition-all duration-300 tracking-wide border border-[#C89522]
+                className={`px-5 py-2 text-sm font-semibold rounded-md transition-all duration-300 tracking-wide border border-[#C89522]
                   ${activeLink === "Contact us" 
                     ? "bg-[#C89522] text-[#071F07] shadow-[0_0_15px_rgba(200,149,34,0.3)]" 
                     : "text-[#C89522] hover:bg-[#C8952215] hover:shadow-[0_0_15px_rgba(200,149,34,0.15)]"
@@ -135,14 +150,30 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <div className="pt-3 px-4 pb-4">
+          <div className="pt-3 px-4 pb-4 flex flex-col gap-2">
+            {/* Download Brochure - Mobile */}
+            <a
+              href="/brochure/Metafab_E_Brochure_compressed (1).pdf"
+              download="Metafab_Brochure.pdf"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-center gap-2 w-full px-5 py-2.5 text-sm font-semibold rounded-md transition-all duration-300 tracking-wide border border-[#9AA978] text-[#9AA978] hover:bg-[#9AA97815]"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download Brochure
+            </a>
+
+            {/* Contact us - Mobile */}
             <Link
               href="/contact"
               onClick={() => {
                 setActiveLink("Contact us");
                 setMobileMenuOpen(false);
               }}
-              className={`block w-full text-center px-5 py-2.5 text-sm font-medium rounded-md transition-all duration-300 tracking-wide border border-[#C89522]
+              className={`block w-full text-center px-5 py-2.5 text-sm font-semibold rounded-md transition-all duration-300 tracking-wide border border-[#C89522]
                 ${activeLink === "Contact us"
                   ? "bg-[#C89522] text-[#071F07]"
                   : "text-[#C89522] hover:bg-[#C8952215]"
