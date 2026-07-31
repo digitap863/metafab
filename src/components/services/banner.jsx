@@ -12,7 +12,12 @@ function Banner() {
       try {
         const response = await api.get("/user/services");
         if (response.data.success) {
-          setServices(response.data.data);
+          const sortedServices = [...response.data.data].sort((a, b) => {
+            const numA = parseInt(a.number || "0", 10);
+            const numB = parseInt(b.number || "0", 10);
+            return numA - numB;
+          });
+          setServices(sortedServices);
         }
       } catch (error) {
         console.error("Error fetching services:", error);

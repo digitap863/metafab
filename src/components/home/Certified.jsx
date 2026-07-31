@@ -5,6 +5,26 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
+const certLogos = [
+  { id: 1, src: "/logo1.svg", alt: "Certification 1" },
+  { id: 2, src: "/logo2.svg", alt: "Certification 2" },
+  { id: 3, src: "/logo3.svg", alt: "Certification 3" },
+  { id: 4, src: "/logo4.svg", alt: "Certification 4" },
+  { id: 5, src: "/logo5.svg", alt: "Certification 5" },
+  { id: 6, src: "/certificates/cert1.png", alt: "Certificate 1" },
+  { id: 7, src: "/certificates/cert2.png", alt: "Certificate 2" },
+  { id: 8, src: "/certificates/cert3.png", alt: "Certificate 3" },
+  { id: 9, src: "/certificates/cert4.png", alt: "Certificate 4" },
+  { id: 10, src: "/certificates/cert5.png", alt: "Certificate 5" },
+  { id: 11, src: "/certificates/cert6.png", alt: "Certificate 6" },
+  { id: 12, src: "/certificates/cert7.png", alt: "Certificate 7" },
+  { id: 13, src: "/certificates/cert8.png", alt: "Certificate 8" },
+  { id: 14, src: "/certificates/cert9.png", alt: "Certificate 9" },
+  { id: 15, src: "/certificates/cert10.png", alt: "Certificate 10" },
+
+
+];
+
 const Certified = () => {
   return (
     <section className="relative w-full py-16 md:py-24 lg:py-32 overflow-hidden flex flex-col items-center justify-center">
@@ -31,28 +51,45 @@ const Certified = () => {
           </h2>
         </div>
 
-        {/* Logos Grid (Desktop) */}
-        <div className="hidden md:flex w-full flex-wrap items-center justify-center gap-10 md:gap-12 lg:gap-16 xl:gap-24" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-          <img src="/logo1.svg" alt="Certification 1" className="h-16 md:h-20 lg:h-24 object-contain opacity-100 hover:opacity-100 transition-opacity hover:scale-105 duration-500" />
-          <img src="/logo2.svg" alt="Certification 2" className="h-16 md:h-20 lg:h-24 object-contain opacity-100 hover:opacity-100 transition-opacity hover:scale-105 duration-500" />
-          <img src="/logo3.svg" alt="Certification 3" className="h-16 md:h-20 lg:h-24 object-contain opacity-100 hover:opacity-100 transition-opacity hover:scale-105 duration-500" />
-          <img src="/logo4.svg" alt="Certification 4" className="h-16 md:h-20 lg:h-24 object-contain opacity-100 hover:opacity-100 transition-opacity hover:scale-105 duration-500" />
-          <img src="/logo5.svg" alt="Certification 5" className="h-16 md:h-20 lg:h-24 object-contain opacity-100 hover:opacity-100 transition-opacity hover:scale-105 duration-500" />
-        </div>
-
-        {/* Logos Swiper (Mobile) */}
-        <div className="block md:hidden w-full overflow-hidden mt-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        {/* Responsive Swiper Carousel for Desktop & Mobile */}
+        <div className="w-full overflow-hidden mt-4 lg:mt-8" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
           <Swiper
             modules={[Autoplay]}
-            spaceBetween={20}
-            slidesPerView={3}
+            spaceBetween={30}
+            slidesPerView={2.2}
             loop={true}
-            autoplay={{ delay: 2000, disableOnInteraction: false }}
-            className="w-full items-center"
+            speed={6000}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              480: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+              768: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 50,
+              },
+              1280: {
+                slidesPerView: 6,
+                spaceBetween: 60,
+              },
+            }}
+            className="w-full flex items-center justify-center py-4 [&_.swiper-wrapper]:!ease-linear"
           >
-            {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num, idx) => (
-              <SwiperSlide key={idx} className="!flex justify-center items-center h-20">
-                <img src={`/logo${num}.svg`} alt={`Certification ${num}`} className="h-16 object-contain mx-auto" />
+            {certLogos.map((item) => (
+              <SwiperSlide key={item.id} className="!flex justify-center items-center h-24">
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className="h-14 sm:h-16 md:h-20 max-w-[140px] md:max-w-[180px] object-contain mx-auto brightness-0 invert opacity-90 hover:opacity-100 transition-all hover:scale-110 duration-300 drop-shadow-sm"
+                />
               </SwiperSlide>
             ))}
           </Swiper>

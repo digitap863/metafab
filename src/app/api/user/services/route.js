@@ -5,7 +5,9 @@ import { NextResponse } from "next/server";
 export const GET = async () => {
   try {
     await connect();
-    const services = await Service.find().sort({ createdAt: 1 }); // Sort by number or creation? Hardcoded had 01, 02...
+    const services = await Service.find().sort({ number: 1, createdAt: 1 });
+    // Ensure numerical sorting if number is stored as string
+    services.sort((a, b) => parseInt(a.number || "0", 10) - parseInt(b.number || "0", 10));
     return NextResponse.json({ success: true, data: services });
   } catch (error) {
     return NextResponse.json(

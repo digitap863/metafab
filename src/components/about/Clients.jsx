@@ -12,11 +12,6 @@ import "swiper/css/autoplay";
 import { useState, useEffect } from "react";
 import api from "@/lib/api";
 
-const staticLogos = [
-  { logo: "/about/kitex.jpg", name: "Kitex" },
-  { logo: "/about/metafab_logo.jpg", name: "Metafab" },
-];
-
 const Clients = () => {
   const [logos, setLogos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,16 +33,10 @@ const Clients = () => {
     fetchLogos();
   }, []);
 
-  if (loading) return null;
+  if (loading || logos.length === 0) return null;
 
-  // Merge static logos with API logos (static always first)
-  const allLogos = [
-    ...staticLogos,
-    ...logos,
-  ];
-
-  const row1Logos = allLogos;
-  const row2Logos = [...allLogos].reverse();
+  const row1Logos = logos;
+  const row2Logos = [...logos].reverse();
   return (
     <section className="w-full bg-white pt-4 pb-10 lg:pt-24 lg:pb-24 px-4 md:px-10 lg:px-20 overflow-hidden">
       <div className="max-w-[1400px] w-full mx-auto flex flex-col items-center">
