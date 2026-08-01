@@ -19,7 +19,7 @@ const categoryCards = [
   {
     id: "conference-tables",
     name: "CONFERENCE TABLES",
-    filterKey: "Tables",
+    filterKey: "Conference Table",
     image: "/product/categories/conference_tables.png",
   },
   {

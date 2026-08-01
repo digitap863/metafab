@@ -7,6 +7,7 @@ import Image from "next/image";
 const defaultCategories = [
   "Modular Workstation",
   "Modular Desking",
+  "Conference Table",
   "Tables",
   "Chairs",
   "Furniture",
@@ -25,8 +26,13 @@ const presetSubCategories = {
     "BENCHING SYSTEM",
     "OPEN PLAN DESKING",
   ],
+  "Conference Table": [
+    "BOARDROOM TABLES",
+    "MODULAR CONFERENCE TABLES",
+    "U-SHAPE TABLES",
+    "EXECUTIVE CONFERENCE TABLES",
+  ],
   "Tables": [
-    "CONFERENCE TABLES",
     "MEETING TABLES",
     "EXECUTIVE TABLES",
     "COFFEE TABLES",

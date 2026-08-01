@@ -54,6 +54,24 @@ const mainCategories = [
     ],
   },
   {
+    id: "conference-table",
+    name: "CONFERENCE TABLE",
+    categoryKey: "Conference Table",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <rect x="3" y="7" width="18" height="6" rx="1" />
+        <line x1="6" y1="13" x2="4" y2="20" />
+        <line x1="18" y1="13" x2="20" y2="20" />
+      </svg>
+    ),
+    defaultSubItems: [
+      "BOARDROOM TABLES",
+      "MODULAR CONFERENCE TABLES",
+      "U-SHAPE TABLES",
+      "EXECUTIVE CONFERENCE TABLES",
+    ],
+  },
+  {
     id: "tables",
     name: "TABLES",
     categoryKey: "Tables",
@@ -63,9 +81,9 @@ const mainCategories = [
       </svg>
     ),
     defaultSubItems: [
-      "CONFERENCE TABLES",
       "MEETING TABLES",
       "EXECUTIVE TABLES",
+      "COFFEE TABLES",
     ],
   },
   {
@@ -99,10 +117,29 @@ const mainCategories = [
   },
 ];
 
-const ProductsCatalogSection = ({ products = [], loading = false }) => {
-  const [selectedCategoryKey, setSelectedCategoryKey] = useState("ALL");
+const ProductsCatalogSection = ({
+  products = [],
+  loading = false,
+  selectedCategory = "ALL",
+  onCategoryChange,
+}) => {
+  const [selectedCategoryKey, setSelectedCategoryKey] = useState(selectedCategory || "ALL");
   const [expandedCategory, setExpandedCategory] = useState("modular-workstations");
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
+
+  React.useEffect(() => {
+    if (selectedCategory) {
+      setSelectedCategoryKey(selectedCategory);
+      setSelectedSubCategory(null);
+
+      const matchedCat = mainCategories.find(
+        (c) => c.categoryKey.toLowerCase().trim() === selectedCategory.toLowerCase().trim()
+      );
+      if (matchedCat && matchedCat.id !== "all") {
+        setExpandedCategory(matchedCat.id);
+      }
+    }
+  }, [selectedCategory]);
 
   // Extract unique subcategories from products for each category
   const dynamicCategories = useMemo(() => {
@@ -114,7 +151,13 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
         .filter((p) => {
           const pCat = (p.category || "").toLowerCase().trim();
           const cKey = cat.categoryKey.toLowerCase().trim();
-          return pCat.includes(cKey) || cKey.includes(pCat);
+          if (cKey.includes("conference")) {
+            return pCat.includes("conference");
+          }
+          if (cKey === "tables") {
+            return pCat === "tables" || (pCat.includes("table") && !pCat.includes("conference"));
+          }
+          return pCat === cKey || pCat.includes(cKey) || cKey.includes(pCat);
         })
         .map((p) => p.subCategory)
         .filter(Boolean);
@@ -133,10 +176,11 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
 
   // Toggle category expand/select
   const handleCategoryClick = (cat) => {
-    if (cat.name === "ALL PRODUCTS") {
+    if (cat.name === "ALL PRODUCTS" || cat.categoryKey === "ALL") {
       setSelectedCategoryKey("ALL");
       setSelectedSubCategory(null);
       setExpandedCategory(null);
+      if (onCategoryChange) onCategoryChange("ALL");
       return;
     }
 
@@ -148,6 +192,7 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
 
     setSelectedCategoryKey(cat.categoryKey);
     setSelectedSubCategory(null);
+    if (onCategoryChange) onCategoryChange(cat.categoryKey);
   };
 
   // Filter products by selected category and subcategory
@@ -157,10 +202,17 @@ const ProductsCatalogSection = ({ products = [], loading = false }) => {
     return products.filter((p) => {
       // 1. Category Filter
       let categoryMatch = true;
-      if (selectedCategoryKey !== "ALL") {
+      if (selectedCategoryKey !== "ALL" && selectedCategoryKey !== "All") {
         const prodCat = (p.category || "").toLowerCase().trim();
         const selCat = selectedCategoryKey.toLowerCase().trim();
-        categoryMatch = prodCat.includes(selCat) || selCat.includes(prodCat);
+
+        if (selCat.includes("conference")) {
+          categoryMatch = prodCat.includes("conference");
+        } else if (selCat === "tables") {
+          categoryMatch = prodCat === "tables" || (prodCat.includes("table") && !prodCat.includes("conference"));
+        } else {
+          categoryMatch = prodCat === selCat || prodCat.includes(selCat) || selCat.includes(prodCat);
+        }
       }
 
       // 2. Subcategory Filter

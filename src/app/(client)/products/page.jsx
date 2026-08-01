@@ -37,6 +37,7 @@ export default function ProductsPage() {
     const counts = {
       "Modular Workstation": 0,
       "Modular Desking": 0,
+      "Conference Table": 0,
       "Tables": 0,
       "Chairs": 0,
       "Furniture": 0,
@@ -70,7 +71,12 @@ export default function ProductsPage() {
 
       {/* 2. Second Section: Product Categories & Model Cards */}
       <div id="catalog-section">
-        <ProductsCatalogSection products={products} loading={loading} />
+        <ProductsCatalogSection
+          products={products}
+          loading={loading}
+          selectedCategory={selectedCategory}
+          onCategoryChange={(cat) => setSelectedCategory(cat)}
+        />
       </div>
 
       {/* 3. Third Section: Customization Yellow Card & 4 Olive Feature Cards */}
