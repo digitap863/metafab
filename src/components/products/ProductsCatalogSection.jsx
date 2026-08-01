@@ -29,11 +29,9 @@ const mainCategories = [
       </svg>
     ),
     defaultSubItems: [
-      "VERTEX SERIES",
-      "VERTEX 075M5 SERIES",
-      "L TYPE B TO B",
-      "L TYPE WORKSTATION",
-      "VERTEX 075MLS SERIES",
+      "Vertex Series",
+      "Vertex 075M5 Series",
+      "Vertex 075MLS Series",
     ],
   },
   {
@@ -48,9 +46,9 @@ const mainCategories = [
       </svg>
     ),
     defaultSubItems: [
-      "EXECUTIVE DESKING",
-      "BENCHING SYSTEM",
-      "OPEN PLAN DESKING",
+      "Accelerate Series",
+      "Matrix Series",
+      "Woodland MW Series",
     ],
   },
   {
@@ -65,10 +63,9 @@ const mainCategories = [
       </svg>
     ),
     defaultSubItems: [
-      "BOARDROOM TABLES",
-      "MODULAR CONFERENCE TABLES",
-      "U-SHAPE TABLES",
-      "EXECUTIVE CONFERENCE TABLES",
+      "Large Conference Table",
+      "Discussion Table",
+      "Collaborative Meeting Table",
     ],
   },
   {
@@ -81,9 +78,12 @@ const mainCategories = [
       </svg>
     ),
     defaultSubItems: [
-      "MEETING TABLES",
-      "EXECUTIVE TABLES",
-      "COFFEE TABLES",
+      "Executive Tables / Office Tables",
+      "Luxora Series",
+      "Admiral",
+      "Legacy",
+      "Prodigy",
+      "DIY (Do-It-Yourself) Series",
     ],
   },
   {
@@ -96,9 +96,14 @@ const mainCategories = [
       </svg>
     ),
     defaultSubItems: [
-      "ERGONOMIC TASK CHAIRS",
-      "EXECUTIVE CHAIRS",
-      "RECEPTION CHAIRS",
+      "Executive Chairs",
+      "Manager Chairs",
+      "Task Chairs",
+      "Mesh Chairs",
+      "Visitor Chairs",
+      "Conference Chairs",
+      "Training Chairs",
+      "Cafeteria / Multipurpose Chairs",
     ],
   },
   {
@@ -111,8 +116,9 @@ const mainCategories = [
       </svg>
     ),
     defaultSubItems: [
-      "LOUNGE SOFAS",
-      "STORAGE & CABINETS",
+      "Sofas",
+      "Educational Furniture",
+      "Healthcare Furniture",
     ],
   },
 ];
@@ -127,6 +133,10 @@ const ProductsCatalogSection = ({
   const [expandedCategory, setExpandedCategory] = useState("modular-workstations");
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
 
+  // Pagination State
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+
   React.useEffect(() => {
     if (selectedCategory) {
       setSelectedCategoryKey(selectedCategory);
@@ -140,6 +150,11 @@ const ProductsCatalogSection = ({
       }
     }
   }, [selectedCategory]);
+
+  // Reset to page 1 whenever filters change
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategoryKey, selectedSubCategory]);
 
   // Extract unique subcategories from products for each category
   const dynamicCategories = useMemo(() => {
@@ -233,6 +248,14 @@ const ProductsCatalogSection = ({
       return categoryMatch && subMatch;
     });
   }, [products, selectedCategoryKey, selectedSubCategory]);
+
+  // Pagination calculation
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
+  const paginatedProducts = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage;
+    return filteredProducts.slice(start, start + itemsPerPage);
+  }, [filteredProducts, currentPage, itemsPerPage]);
 
   // Section Title Display
   const sectionTitle = useMemo(() => {
@@ -415,36 +438,85 @@ const ProductsCatalogSection = ({
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
-              {filteredProducts.map((product) => (
-                <Link
-                  key={product._id || product.slug}
-                  href={`/products/${product.slug}`}
-                  className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#071F07]/40 transition-all duration-300 group flex flex-col justify-between"
-                >
-                  {/* Top Image Box */}
-                  <div className="h-36 sm:h-48 md:h-52 w-full bg-[#F3F5EF] p-2.5 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#EDF0E8] transition-colors">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                    />
+            <>
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
+                {paginatedProducts.map((product) => (
+                  <Link
+                    key={product._id || product.slug}
+                    href={`/products/${product.slug}`}
+                    className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#071F07]/40 transition-all duration-300 group flex flex-col justify-between"
+                  >
+                    {/* Top Image Box */}
+                    <div className="h-36 sm:h-48 md:h-52 w-full bg-[#F3F5EF] p-2.5 sm:p-4 flex items-center justify-center relative overflow-hidden group-hover:bg-[#EDF0E8] transition-colors">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+
+                    {/* Bottom Model Name Container */}
+                    <div className="bg-white p-2.5 sm:p-4 text-center border-t border-gray-100 flex flex-col items-center justify-center min-h-[56px] sm:min-h-[68px]">
+                      <h3 className="text-[#071F07] font-extrabold text-[11px] sm:text-xs md:text-sm uppercase tracking-wide leading-snug line-clamp-2 group-hover:text-[#6E864A] transition-colors">
+                        {product.name}
+                      </h3>
+                      {product.subCategory && (
+                        <span className="text-[9px] sm:text-[10px] font-bold text-[#6E864A] uppercase tracking-wider mt-0.5 line-clamp-1">
+                          {product.subCategory}
+                        </span>
+                      )}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Pagination Controls */}
+              {totalPages > 1 && (
+                <div className="mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 font-sora">
+                  <div className="text-xs font-semibold text-gray-500">
+                    Showing <span className="font-extrabold text-[#071F07]">{(currentPage - 1) * itemsPerPage + 1}</span> - <span className="font-extrabold text-[#071F07]">{Math.min(currentPage * itemsPerPage, filteredProducts.length)}</span> of <span className="font-extrabold text-[#071F07]">{filteredProducts.length}</span> products
                   </div>
 
-                  {/* Bottom Model Name Container */}
-                  <div className="bg-white p-2.5 sm:p-4 text-center border-t border-gray-100 flex flex-col items-center justify-center min-h-[56px] sm:min-h-[68px]">
-                    <h3 className="text-[#071F07] font-extrabold text-[11px] sm:text-xs md:text-sm uppercase tracking-wide leading-snug line-clamp-2 group-hover:text-[#6E864A] transition-colors">
-                      {product.name}
-                    </h3>
-                    {product.subCategory && (
-                      <span className="text-[9px] sm:text-[10px] font-bold text-[#6E864A] uppercase tracking-wider mt-0.5 line-clamp-1">
-                        {product.subCategory}
-                      </span>
-                    )}
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    {/* Previous Button */}
+                    <button
+                      disabled={currentPage === 1}
+                      onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                      className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-gray-200 text-xs font-bold uppercase transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#071F07] hover:text-white hover:border-[#071F07] text-[#071F07]"
+                    >
+                      ‹ Prev
+                    </button>
+
+                    {/* Page Numbers */}
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => {
+                      const isActive = pageNum === currentPage;
+                      return (
+                        <button
+                          key={pageNum}
+                          onClick={() => setCurrentPage(pageNum)}
+                          className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-xs font-extrabold transition-all flex items-center justify-center ${
+                            isActive
+                              ? "bg-[#071F07] text-white shadow-md"
+                              : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-100"
+                          }`}
+                        >
+                          {pageNum}
+                        </button>
+                      );
+                    })}
+
+                    {/* Next Button */}
+                    <button
+                      disabled={currentPage === totalPages}
+                      onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                      className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-gray-200 text-xs font-bold uppercase transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#071F07] hover:text-white hover:border-[#071F07] text-[#071F07]"
+                    >
+                      Next ›
+                    </button>
                   </div>
-                </Link>
-              ))}
-            </div>
+                </div>
+              )}
+            </>
           )}
 
         </div>
