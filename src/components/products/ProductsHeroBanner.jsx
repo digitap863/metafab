@@ -14,7 +14,7 @@ const categoryCards = [
     id: "modular-desking",
     name: "MODULAR DESKING",
     filterKey: "Modular Desking",
-    image: "/product/categories/Modular_Desking.png",
+    image: "/product/categories/ModularDesking.png",
   },
   {
     id: "conference-tables",
