@@ -135,7 +135,7 @@ const AboutBanner = () => {
           >
             <span className="block">DESIGNS</span>
             <span className="block">YOUR</span>
-            <span className="block">THOUGHTS</span>
+            <span className="block">THOUGHT</span>
           </h2>
 
           {/* Right: Decorative line + bullet services list — exactly like homepage hero */}
