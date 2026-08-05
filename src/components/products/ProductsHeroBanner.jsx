@@ -38,7 +38,7 @@ const categoryCards = [
     id: "furniture",
     name: "FURNITURE",
     filterKey: "Furniture",
-    image: "/product/categories/sofa.jpeg",
+    image: "/product/categories/sofa.png",
   },
 ];
 
