@@ -14,7 +14,6 @@ export const PUT = async (req, { params }) => {
     const modelNumber = formData.get("modelNumber") || "";
     const category = formData.get("category");
     const subCategory = formData.get("subCategory") || "";
-    const price = formData.get("price");
     const rating = formData.get("rating") || "4.5";
     const subtitle = formData.get("subtitle") || "";
     const description = formData.get("description");
@@ -127,7 +126,6 @@ export const PUT = async (req, { params }) => {
         modelNumber: modelNumber !== undefined ? modelNumber : product.modelNumber,
         category: category || product.category,
         subCategory: subCategory !== undefined ? subCategory : product.subCategory,
-        price: price || product.price,
         rating: rating || product.rating,
         subtitle: subtitle !== undefined ? subtitle : product.subtitle,
         description: description || product.description,

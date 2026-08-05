@@ -57,7 +57,6 @@ const presetSubCategories = {
 const emptyFormData = {
   name: "",
   modelNumber: "",
-  price: "",
   rating: "",
   subtitle: "",
   category: "Modular Workstation",
@@ -123,7 +122,6 @@ export default function AdminProductsPage() {
       setFormData({
         name: product.name || "",
         modelNumber: product.modelNumber || "",
-        price: product.price || "",
         rating: product.rating || "",
         subtitle: product.subtitle || "",
         category: isCustomCat ? "Custom" : (product.category || "Modular Workstation"),
@@ -245,7 +243,6 @@ export default function AdminProductsPage() {
     const data = new FormData();
     data.append("name", formData.name);
     data.append("modelNumber", formData.modelNumber);
-    data.append("price", formData.price);
     data.append("rating", formData.rating);
     data.append("subtitle", formData.subtitle);
     data.append("category", finalCategory.trim());
@@ -464,9 +461,6 @@ export default function AdminProductsPage() {
                         </span>
                       )}
                     </div>
-                    <span className="text-sm font-extrabold text-[#6E864A] shrink-0">
-                      {product.price}
-                    </span>
                   </div>
                   <p className="text-gray-500 text-xs line-clamp-2 mt-1 leading-relaxed">
                     {product.description}
@@ -554,21 +548,6 @@ export default function AdminProductsPage() {
                       onChange={handleInputChange}
                       placeholder="e.g. EXE-1253"
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#071F07] text-sm text-black"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-extrabold text-gray-700 uppercase mb-1.5">
-                      Price *
-                    </label>
-                    <input
-                      type="text"
-                      name="price"
-                      value={formData.price}
-                      onChange={handleInputChange}
-                      placeholder="e.g. ₹40,99.00 INR"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#071F07] text-sm text-black"
-                      required
                     />
                   </div>
 
@@ -888,3 +867,4 @@ export default function AdminProductsPage() {
     </div>
   );
 }
+

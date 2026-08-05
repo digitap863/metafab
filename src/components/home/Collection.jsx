@@ -26,10 +26,9 @@ const ProductCard = ({ product }) => (
 
     {/* Product Info & Button */}
     <div className="mt-auto relative w-full h-[52px]">
-      {/* Title & Price (Moves up on hover) */}
+      {/* Title (Moves up on hover) */}
       <div className="absolute left-0 bottom-0 flex flex-col pr-24 z-10 transition-transform duration-300 group-hover:-translate-y-[60px]">
         <h3 className="text-black font-bold text-lg md:text-xl uppercase tracking-wide leading-tight line-clamp-2">{product.title}</h3>
-        <p className="text-black/80 text-xs md:text-[13px] font-semibold mt-1">{product.price}</p>
       </div>
 
       {/* Default Small Button (Fades out) */}

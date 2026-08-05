@@ -25,10 +25,6 @@ const ProductsSchema = new Schema(
       type: String,
       default: "",
     },
-    price: {
-      type: String,
-      required: true,
-    },
     rating: {
       type: String,
       default: "",

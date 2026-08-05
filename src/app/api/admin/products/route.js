@@ -43,7 +43,6 @@ export const POST = async (req) => {
     const modelNumber = formData.get("modelNumber") || "";
     const category = formData.get("category");
     const subCategory = formData.get("subCategory") || "";
-    const price = formData.get("price");
     const rating = formData.get("rating") || "4.5";
     const subtitle = formData.get("subtitle") || "";
     const description = formData.get("description");
@@ -63,9 +62,9 @@ export const POST = async (req) => {
     const file = formData.get("image");
     const galleryFiles = formData.getAll("gallery");
 
-    if (!file || !name || !price || !description || !details || !category) {
+    if (!file || !name || !description || !details || !category) {
       return NextResponse.json(
-        { success: false, message: "Required fields (Name, Price, Category, Description, Details, Main Image) are missing." },
+        { success: false, message: "Required fields (Name, Category, Description, Details, Main Image) are missing." },
         { status: 400 }
       );
     }
@@ -123,7 +122,6 @@ export const POST = async (req) => {
       modelNumber,
       category,
       subCategory,
-      price,
       rating,
       subtitle,
       description,

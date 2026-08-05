@@ -193,12 +193,15 @@ const ProductsBanner = ({ product }) => {
               </div>
             )}
 
-            {/* Price Display */}
-            {product.price && (
-              <div className="text-xl sm:text-3xl font-semibold text-[#071F07] my-0.5 sm:my-1">
-                {product.price}
-              </div>
-            )}
+            <div className="pt-1 sm:pt-2">
+              <Link
+                href={`/contact?product=${encodeURIComponent(product.slug || product.name || "product")}`}
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-[#071F07] px-6 py-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white shadow-md transition-colors hover:bg-black"
+              >
+                <span>Enquire Now</span>
+                
+              </Link>
+            </div>
 
             {/* Key Feature Badges Grid */}
             {featuresList.length > 0 && (

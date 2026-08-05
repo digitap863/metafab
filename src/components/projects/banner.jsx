@@ -100,7 +100,7 @@ const ProjectsBanner = () => {
 
                 {/* Details Box */}
                 <div
-                  className={`w-full md:w-[30%] flex flex-col justify-center p-8 lg:p-14 rounded-2xl ${isFirstTwo ? "bg-white text-[#071F07]" : "bg-[#A7B582] text-white"
+                  className={`w-full md:w-[30%] min-w-0 flex flex-col justify-center p-8 lg:p-14 rounded-2xl ${isFirstTwo ? "bg-white text-[#071F07]" : "bg-[#A7B582] text-white"
                     }`}
                   data-aos="fade-left"
                   data-aos-duration="1000"
@@ -115,7 +115,7 @@ const ProjectsBanner = () => {
                         </span>
                         <div className={`flex-1 h-[1px] ${isFirstTwo ? "bg-gray-300" : "bg-white/40"}`}></div>
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">{project.name}</h3>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-tight break-words">{project.name}</h3>
                     </div>
 
                     {/* Location */}
@@ -126,7 +126,7 @@ const ProjectsBanner = () => {
                         </span>
                         <div className={`flex-1 h-[1px] ${isFirstTwo ? "bg-gray-300" : "bg-white/40"}`}></div>
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">{project.location}</h3>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-tight break-words">{project.location}</h3>
                     </div>
 
                     {/* Year */}
@@ -137,7 +137,7 @@ const ProjectsBanner = () => {
                         </span>
                         <div className={`flex-1 h-[1px] ${isFirstTwo ? "bg-gray-300" : "bg-white/40"}`}></div>
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">{project.year}</h3>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-tight break-words">{project.year}</h3>
                     </div>
                   </div>
                 </div>
@@ -180,7 +180,7 @@ const ProjectsBanner = () => {
 
                 {/* Details Box */}
                 <div
-                  className={`w-full md:w-[30%] flex flex-col justify-center p-8 lg:p-14 rounded-b-2xl md:rounded-2xl ${isFirstTwo ? "bg-white text-[#071F07]" : "bg-[#A7B582] text-white"
+                  className={`w-full md:w-[30%] min-w-0 flex flex-col justify-center p-8 lg:p-14 rounded-b-2xl md:rounded-2xl ${isFirstTwo ? "bg-white text-[#071F07]" : "bg-[#A7B582] text-white"
                     }`}
                 >
                   <div className="flex flex-col gap-10 md:gap-16">
@@ -192,7 +192,7 @@ const ProjectsBanner = () => {
                         </span>
                         <div className={`flex-1 h-[1px] ${isFirstTwo ? "bg-gray-300" : "bg-white/40"}`}></div>
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">{project.name}</h3>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-tight break-words">{project.name}</h3>
                     </div>
 
                     {/* Location */}
@@ -203,7 +203,7 @@ const ProjectsBanner = () => {
                         </span>
                         <div className={`flex-1 h-[1px] ${isFirstTwo ? "bg-gray-300" : "bg-white/40"}`}></div>
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">{project.location}</h3>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-tight break-words">{project.location}</h3>
                     </div>
 
                     {/* Year */}
@@ -214,7 +214,7 @@ const ProjectsBanner = () => {
                         </span>
                         <div className={`flex-1 h-[1px] ${isFirstTwo ? "bg-gray-300" : "bg-white/40"}`}></div>
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">{project.year}</h3>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-tight break-words">{project.year}</h3>
                     </div>
                   </div>
                 </div>

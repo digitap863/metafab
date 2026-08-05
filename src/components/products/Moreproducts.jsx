@@ -31,14 +31,11 @@ const ProductCard = ({ product }) => (
     {/* Bottom Details & Animated Action Area */}
     <div className="mt-auto relative w-full h-[60px] sm:h-[64px] flex items-end">
       
-      {/* Product Title & Price (Moves UPWARDS on hover) */}
+      {/* Product Title (Moves UPWARDS on hover) */}
       <div className="flex flex-col pr-2 z-10 transition-transform duration-500 ease-out group-hover:-translate-y-[48px] sm:group-hover:-translate-y-[54px]">
         <h3 className="text-[#071F07] font-semibold text-xs sm:text-base uppercase tracking-wide leading-tight line-clamp-1">
           {product.name || product.title}
         </h3>
-        <p className="text-[#071F07]/90 text-xs sm:text-sm font-bold mt-0.5 sm:mt-1">
-          {product.price}
-        </p>
       </div>
 
       {/* Initial View: Small Arrow Button on Right (No text) */}
