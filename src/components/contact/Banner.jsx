@@ -57,9 +57,15 @@ function Banner() {
                 </div>
                 <div className="text-sm md:text-[15px] leading-relaxed text-white/90">
                   <p className="font-semibold text-white mb-1">Metafab Technologies</p>
-                  <p>35/552 A, Opp.International Stadium,</p>
-                  <p>Eroor Vasudev Road, Kaloor,</p>
-                  <p>Kochi - 682 025</p>
+                  <p>
+                    E1, Rathna Gardens, 4th Floor,
+                  </p>
+                  <p>
+                    S Janatha Rd, Palarivattom,
+                  </p>
+                  <p>
+                    Kochi, Kerala 682025
+                  </p>
                 </div>
               </div>
 

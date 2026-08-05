@@ -244,7 +244,7 @@ const Footer = () => {
             data-aos-offset="0"
           >
             <p className="text-[#D7D7D7] text-xs">
-              Copyright © Tapclone &nbsp;|&nbsp; All rights reserved.
+              Copyright @Metafab &nbsp;|&nbsp; All rights reserved.
             </p>
             <Link
               href="/privacy"
